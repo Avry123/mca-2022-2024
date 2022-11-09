@@ -1,0 +1,21 @@
+div {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_div {
+    max-width: 500px;
+    max-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+   background-color: whitesmoke;
+}
+
+input {
+    margin-top: 2em;
+}

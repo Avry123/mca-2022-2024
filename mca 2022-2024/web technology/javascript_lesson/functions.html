@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div class="form_div">
+            <form id="form10" action="" method="post" onsubmit="submit10(e)">
+                <input type="text" name="name" id="name_10">
+                <br>
+                <input type="email" name="email" id="email_10">
+                <br><br>
+                <button type="submit" onclick="submit20()">Submit</button>
+            </form>
+          </div>
+    </div> 
+    <h2 id="updating_via_function"></h2>
+    <h2 id="show_name"></h2>
+    <h2 id="show_email"></h2>
+</body>
+<script>
+    function add(...params) {
+        var y = 0;
+        for (var a = 0; a < params.length; a++) {
+            // y += params[a];
+            y = y + params[a]
+        }
+         document.getElementById('updating_via_function').innerHTML = y;
+    }
+
+    function multiply(...params) {
+        var y = 1;
+        params.forEach(a => {
+        //   console.log(params[a - 1]);
+         y *= params[a - 1]
+        })
+       console.log(y);
+    }
+
+   
+add(1,2,3)
+multiply(1,2,3)
+</script>
+</html>

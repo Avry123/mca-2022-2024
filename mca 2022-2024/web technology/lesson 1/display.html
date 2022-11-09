@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: whitesmoke;
+    }
+    div {
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+    }
+
+    .none_1 {
+        display: none;
+    }
+
+    .inline_1 {
+        display: inline;
+        background: red;
+        margin-left: 400px;
+    }
+
+    .block_1 {
+        display:block;
+        background: green;
+    }
+
+    h4:hover + .diablo {
+        background: violet;
+    }
+</style>
+<body>
+    <div class="none_1"></div>
+    <div class="inline_1"></div>
+    <!-- <div class="block_1"></div> -->
+    <h4>Hello</h4>
+    <div class="diablo"></div>
+</body>
+</html>
