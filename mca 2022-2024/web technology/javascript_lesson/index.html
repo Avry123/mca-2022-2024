@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div class="form_div">
+            <form id="form10" action="" method="post" onsubmit="submit10(e)">
+                <input type="text" name="name" id="name_10">
+                <br>
+                <input type="email" name="email" id="email_10">
+                <br><br>
+                <button type="submit" onclick="submit20()">Submit</button>
+            </form>
+          </div>
+    </div> 
+    <h2 id="updating_via_function"></h2>
+    <h2 id="show_name"></h2>
+    <h2 id="show_email"></h2>
+</body>
+<script>
+
+    var form = document.getElementById("form10");
+    function handleForm(event) { event.preventDefault(); } 
+    form.addEventListener('submit', handleForm);
+
+
+    // alert('This is the alert function.');
+    document.write('Hello world this is the write function');
+
+    function submit10(e) {
+        e.preventDefault();
+
+    }
+
+    function submit20() {
+        document.getElementById('updating_via_function').innerHTML = 'Hello Twitter World!'
+        var x = document.getElementById('name_10').value;
+        var y = document.getElementById('email_10').value;
+       document.getElementById('show_name').innerHTML = x;
+       document.getElementById('show_email').innerHTML = y;
+    }
+
+    
+
+   
+   
+</script>
+</html>

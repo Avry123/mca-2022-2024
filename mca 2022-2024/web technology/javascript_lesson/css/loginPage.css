@@ -1,0 +1,21 @@
+.center_it {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_form {
+    width: 450px;
+    min-height: 50vh;
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    text-align: center;
+    border:0px;
+    border-radius: 20px;
+}
