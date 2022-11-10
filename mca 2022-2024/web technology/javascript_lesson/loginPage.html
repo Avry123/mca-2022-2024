@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/loginPage.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="center_it">
+        <div class="login_form">
+            <label for="email_10">Email: </label>
+            <input type="email" name="email" id="email_10"
+            onmouseover="mouseOver10()"
+            onmouseleave="onMouseLeave10()"
+            onmousedown="mouseDown10()"
+            onmouseup="mouseUp10()"
+            >
+            <input type="text" id="email_20"
+            onmouseenter="mouseEnter10()"
+            onmousewheel="mouseWheel10()"
+            onmouseout="mouseOut10()"
+            >
+            <textarea name="" id="show_co_ordinates" cols="30" rows="10"
+            onmousemove="mouseMove10(event)">
+          
+          </textarea>
+          <label for="keyBuiltInFunctions"></label>
+          <textarea name="" id="keyBuiltInFunctions" cols="30" rows="10"
+          onkeydown="keyDown10()"
+          onkeyup="keyUp10()"
+          onkeypress="keyPress10(event)"
+          ></textarea>
+          <label for="copyAndPaste">Copy and Functions</label>
+          <textarea name="" id="copyAndPaste" cols="30" rows="10"
+          oncopy="copy10()"
+          oncut = 'cut10()'
+          onpaste="paste10()"
+          ondrop="drop10()"
+          ondrag="drag10()"
+          >
+          </textarea>
+          <h3 id="showingOutput"></h3>
+            <button>Submit</button>
+        </div>
+    </div>
+</body>
+<script>
+  function mouseOver10() {
+    document.getElementById('email_10').style.background = 'yellow'
+  }
+
+  function onMouseLeave10() {
+    document.getElementById('email_10').style.background = 'whitesmoke'
+  }
+
+  function mouseDown10() {
+    document.getElementById('email_10').style.background = 'red'
+  }
+
+  function mouseUp10() {
+    document.getElementById('email_10').style.background = 'orange'
+  }
+
+  function mouseMove10(e) {
+     var x = e.clientX
+     var y = e.clientY
+    //  console.log(e.clientX , e.clientY)
+     document.getElementById('show_co_ordinates').innerHTML = 'the x co_ordinate is '+ x + ' the y co_ordinates is '+  y ;
+  }
+
+  function mouseEnter10() {
+     document.getElementById('email_20').style.background = 'red';
+  }
+ 
+function mouseWheel10() {
+  document.getElementById('email_20').style.background = 'blue';
+}
+
+function mouseOut10() {
+  document.getElementById('email_20').style.background = 'orange';
+}
+
+function keyDown10() {
+  document.getElementById('showingOutput').innerHTML = 'keydown function is executed'
+}
+
+function keyUp10() {
+  document.getElementById('showingOutput').innerHTML = 'Keyup function is working'
+}
+
+function keyPress10(e) {
+  // console.log(e.key)
+  document.getElementById('showingOutput').innerHTML = 'keypress function is being executed, the value is ' + e.key
+}
+
+function copy10() {
+  document.getElementById('showingOutput').innerHTML = 'Ctrl + C'
+}
+
+function cut10() {
+  document.getElementById('showingOutput').innerHTML = 'Ctrl + X'
+}
+
+function paste10() {
+  document.getElementById('showingOutput').innerHTML = 'Ctrl + V'
+}
+
+function drop10() {
+  document.getElementById('showingOutput').innerHTML =  'Element was dropped'
+}
+
+function drag10() {
+  document.getElementById('showingOutput').innerHTML = 'Element was dragged'
+}
+  
+</script>
+</html>

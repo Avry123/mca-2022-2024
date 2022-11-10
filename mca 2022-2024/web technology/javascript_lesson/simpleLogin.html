@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="email" name="email" id="email10">
+    <input type="password" name="password" id="password10">
+    <button type="submit" onclick="submit10()">Submit</button>
+    <button onclick="openUrl()">Give me a url</button>
+    <button onClick="openMyWindow()">Give me answer</button>
+    <button onClick="showTimeOut()">To Show Time Out function</button>
+    <button onClick="showError10()">Show Error</button>
+</body>
+<script>
+    function submit10() {
+        var email10 = document.getElementById('email10').value ;
+        var password10 = document.getElementById('password10').value ;
+        
+        if (email10 == 'neel@gmail.com' && password10 == '12345') {
+            alert('You have logged in')
+        } else {
+            alert('Sorry, access denied')
+        }
+
+
+    }
+
+    function openUrl() {
+        var url10 = prompt('please give a url : '  )
+        open(url10)
+    }
+
+    let myWindow;
+
+    function openMyWindow() {
+        myWindow = window.open("", "https://github.com/Avry123/Web_technology_class", "width: 200 , height: 200")
+    }
+
+    function closeMyWindow() {
+        myWindow.close()
+    }
+
+    function  showTimeOut() {
+        setTimeout(() => {
+           alert('Hello World') 
+        }, 2000);
+    }
+
+    function showError10() {
+        console.error('Please check your code again');
+    }
+
+    function navigateOrObject() {
+        document.write('First Name: ')
+        document.writeln('Last Name: ')
+
+        document.write('<pre>')
+            document.writeln()
+    }
+
+    function beforePrint() {
+        
+    }
+</script>
+</html>
