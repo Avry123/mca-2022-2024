@@ -1,3 +1,6 @@
+works
+
+
 #Write a python programme to get a string made of first 2 and last 2 character from a given string , if the string lenght is less than 2, return instead of the empty string.
 #Sample String: 'python programming'
 #Expected result: 'pyng'
