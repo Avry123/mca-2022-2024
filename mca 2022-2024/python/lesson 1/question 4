@@ -1,0 +1,3 @@
+#Write a python program to get a string from a given string where all occurencess of its first char have been changed to '@', except the first char itself.
+#Sample String: 'restart' Object Oriented Programming Language
+#Expected Resykt: 'resta@t'
