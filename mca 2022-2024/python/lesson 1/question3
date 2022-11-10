@@ -5,7 +5,7 @@
 #Sample String: 'string'
 #Expected result: 'Stringly'
 
-repeatOrNo = input('To start the programme press y')
+repeatOrNo = input('To start the programme press y ')
 
 while repeatOrNo.lower() == 'y' :
     x = input('Please give us a string  ')
@@ -13,11 +13,14 @@ while repeatOrNo.lower() == 'y' :
     x_leftSide = x_length - 3
     x_rightSide = x_length
     last_three_words = x[x_leftSide:x_rightSide]
-    if (last_three_words == 'ing') : 
-        x = x + 'ly'
+    if (x_length < 3) :
         print(x)
     else :
-        x = x + 'ing'
-        print(x)
+        if (last_three_words == 'ing') : 
+           x = x + 'ly'
+           print(x)
+        else :
+           x = x + 'ing'
+           print(x)
     repeatOrNo = input('Press Y to repeat or press N to close  ')
     
