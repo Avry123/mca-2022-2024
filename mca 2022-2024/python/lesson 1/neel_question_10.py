@@ -20,38 +20,26 @@
 
 # print(c + d)
 
-runOrNot = input('Start Y/Stop N ')
+
+
+runOrNot = input('Start Y/Stop N')
 
 listCreation = []
 
-a = []
-
-b = []
-
 def rotateList(m,n) :
-        iterate2 = 0
-        while iterate2 < n:
-            x = m.pop()
-            a.append(x)
-            iterate2 = iterate2 + 1
-        print(a + m)
-        
-    
-while runOrNot.lower() == 'y':
-    askingHowManyValues = input('How many values do you want to add ? ')
-    iterate1 = 0
-    while iterate1 < int(askingHowManyValues) :
-        numberAddingToList = input('Number: ')
-        listCreation.append(int(numberAddingToList))
-        iterate1 = iterate1 + 1
-    numberOfTimesToRotate = int(input('Rotation: '))
-    print(type(listCreation))
-    print(type(numberOfTimesToRotate))
-    rotateList(listCreation , numberOfTimesToRotate)
+    iterate = 0
+    while iterate < n:
+        x = listCreation.pop()
+        listCreation.insert(0,x)
+        iterate += 1
+    print(listCreation)
+
+while runOrNot.lower() == 'y' :
+    numbersToAdd = input('Number of items to add ')
+    for i in range(int(numbersToAdd)) :
+        numbersForList = input('number: ')
+        listCreation.append(int(numbersForList))
+    rotationToPerform = input('No. Of Times to perform rotation: ')
+    rotateList(listCreation, int(rotationToPerform))
     listCreation = []
-    a = []
-    b = []
-    runOrNot = input('Start Y/Stop N ')
-    
-    
-    
+    runOrNot = input('Start Y/Stop N')
