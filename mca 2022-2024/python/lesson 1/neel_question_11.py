@@ -9,17 +9,22 @@ a = []
 
 def ascendingList(m) :
     iterate2 = 0
+    iterate3 = 0
     correctedList = []
     trueOrFalse = 'true'
     correctedList += m
     correctedList.sort()
     while iterate2 < len(correctedList) :
-        if (a[iterate2] == correctedList[iterate2]) :
-            iterate2 += 1
-        else :
-            trueOrFalse = 'false'
-            iterate2 += 1
-    print(trueOrFalse)
+        if (m[iterate2] == correctedList[iterate2]) :
+            iterate3 += 1
+        iterate2 += 1
+    if (iterate3 == len(m)) :
+        print('true')
+    else :
+        print('false')
+    iterate2 = 0
+    iterate3 = 0
+    correctedList = []
 
 while repeatOrNot.lower() == 'y' :
     letterOrNot = input('Letter l/Number n ')
@@ -39,4 +44,3 @@ while repeatOrNot.lower() == 'y' :
     a = []
     repeatOrNot = input('Start Y/Stop N ')
         
-    
