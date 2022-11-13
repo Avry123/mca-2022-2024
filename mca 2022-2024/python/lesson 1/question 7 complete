@@ -1,25 +1,63 @@
 # Online Python compiler (interpreter) to run Python online.
 # Write Python 3 code in this online editor and run it.
 
-a = [['n' , 'e', 'e', 'l'],
-     ['r', 'e', 'e', 't'],
-     ['n','a','s','h'],
-     ['s','e','a','n']]
+# a = [['n' , 'e', 'e'],
+#      ['r', 'e', 'e'],
+#      ['n','a','s']]
     
-b = [[],[],[],[]]
-i = 0 
+# b = [[],[],[],[]]
+# i = 0 
 
-aLength = len(a)
+# aLength = len(a)
 
-while i < aLength:
-    print(i)
-    j = 0
-    while j < aLength:
-        b[i].append(a[j][i])
-        print('completed')
-        j = j+ 1
-    i = i + 1
-print(b)
+# while i < aLength:
+#     print(i)
+#     j = 0
+#     while j < aLength:
+#         b[i].append(a[j][i])
+#         print('completed')
+#         j = j+ 1
+#     i = i + 1
+# print(b)
+
+repeatOrNot = input('Start Y/Stop N')
+
+a = []
+
+b = []
+
+def matrixTranspose(param) :
+    aLength = len(a)
+    i = 0
+    while i < aLength:
+        print(i)
+        j = 0
+        while j < aLength:
+            b[i].append(a[j][i])
+            print('completed')
+            j = j+ 1
+        i = i + 1
+    print(b)
+
+while repeatOrNot.lower() == 'y' :
+    addingList = input('How many rows and columns do you want to add? ')
+    iterate = 0
+    while iterate < int(addingList) :
+        a.append([])
+        b.append([])
+        iterate1 = 0
+        while iterate1 < int(addingList) :
+            # print('This is iterate ', iterate )
+            addingValueToEachRow = input('input: ')
+            a[iterate].append(addingValueToEachRow)
+            iterate1 += 1
+        iterate += 1
+    matrixTranspose(a)
+    a = []
+    b = []
+    repeatOrNot = input('Start Y/Stop N')
+        
+    
 
 
 
