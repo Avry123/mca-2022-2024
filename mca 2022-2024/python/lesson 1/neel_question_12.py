@@ -8,3 +8,38 @@
 # ('l', ':', ['language'])
 # ('p', ':', ['programming' , 'python'])
 # ..
+
+# a = 'name'
+
+# thingTODo = {a : 'neel'}
+
+# print(thingTODo)
+
+# a = ['neel','reet','mangesh']
+
+# b = a[0]
+
+# print(b[0:1])
+
+listGettingInputs = []
+
+repeatOrNot = input('Start Y/Stop N')
+
+def dictionary10(m) :
+    firstItem = m[0]
+    firstLetterOfFirstItem = firstItem[0:1]
+    dictionaryToPrint = {firstLetterOfFirstItem : listGettingInputs}
+    print(dictionaryToPrint)
+
+while repeatOrNot.lower() == 'y' :
+    b = input('No of inputs you want in a list: ')
+    iterate0 = 0
+    while iterate0 < int(b) :
+        items = input('Item: ')
+        listGettingInputs.append(items)
+        iterate0 += 1
+    dictionary10(listGettingInputs)
+    listGettingInputs = []
+    repeatOrNot = input('Start Y/Stop N')
+        
+    
