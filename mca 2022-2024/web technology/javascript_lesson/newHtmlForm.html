@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/loginPage.css">
+</head>
+<body>
+    <div class="center_it">
+    <form class="login_form">
+        <img class="logo" src="./img/monkey wearing space suite 1.png" alt="monkey" >
+        <label for="image10">Image: </label>
+        <input id="image10" type="file" src="" alt="">
+        <label for="email10">Email: </label>
+        <input id="email10" type="email" name="" id="">
+         <label for="password10">Password: </label>
+        <input id="password10" type="password" name="" id="">
+        <label for="date_of_birht">DOB</label>
+        <input type="date" name="" id="date_of_birth">
+        <div>
+         <label for="male10">Male</label>
+         <input type="radio" name="male" id="male10">
+         <label for="female10">Female</label>
+         <input type="radio" name="female" id="female10">
+        </div>
+        <div>
+            <label for="france">French</label>
+            <input type="checkbox" name="french" id="france">
+            <label for="japan">japanese</label>
+            <input type="checkbox" name="japanese" id="japan">
+            <label for="korea">Korean</label>
+            <input type="checkbox" name="korean" id="korea">
+        </div>
+        <select name="favorite_country" id="favorite_country">
+            <option value="Japan">Japan</option>
+            <option value="Korea">Korea</option>
+            <option value="China">Chinese</option>
+            <option value="Taiwan">Taiwan</option>
+        </select>
+        <button  onclick="collect()">Submit</button>
+    </form>
+</div>
+</body>
+<script>
+    function collect() {
+        var filieName = document.getElementById('image10').value;
+        var email = document.getElementById('email10').value;
+        var password = document.getElementById('password10').value;
+        var dob = document.getElementById('date_of_birht').value;
+        var male = document.getElementById('male10').value;
+        var female = document.getElementById('female10').value;
+        if (male) {
+            var gender = male
+        } else {
+            var gender = female
+        }
+       console.log(gender)
+
+    }
+</script>
+</html>
