@@ -33,6 +33,78 @@ def dictionary10(m) :
 
 while repeatOrNot.lower() == 'y' :
     b = input('No of inputs you want in a list: ')
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    # Online Python compiler (interpreter) to run Python online.
+# Write Python 3 code in this online editor and run it.
+
+
+# 1. Following takes the first letter from the list and avoids repetition and appends it to the new list.
+
+# a = ['neel', 'reet', 'mangesh', 'tanvi' , 'tanvi']
+
+# commonLetter = []
+
+# i = 0
+
+# while i < len(a) :
+#     if (a[i][0]  not in commonLetter) :
+#         commonLetter.append(a[i][0])
+#     i += 1
+
+# print(commonLetter)
+
+a = ['neel', 'reet', 'mangesh', 'tanvi' , 'tanvi' , 'nimesh']
+
+b = ['n' , 'r', 'm', 't']
+
+addingItems = []
+
+# b will be the while loop here, inside of this there will be the a loop
+if (b[0] == a[0][0]) :
+    addingItems.append(a[0])
+    # iterate += 1 
+print(addingItems)
+
+if (b[0] == a[1][0]) :
+    addingItems.append(a[1])
+    # iterate += 1 
+print(addingItems)
+
+if (b[0] == a[2][0]) :
+    addingItems.append(a[2])
+    # iterate += 1 
+print(addingItems)
+    
+if (b[0] == a[3][0]) :
+    addingItems.append(a[3])
+    # iterate += 1 
+print(addingItems)
+
+if (b[0] == a[4][0]) :
+    addingItems.append(a[4])
+    # iterate += 1 
+print(addingItems)
+
+if (b[0] == a[5][0]) :
+    addingItems.append(a[5])
+    # iterate += 1 
+print(addingItems)
+
+# iterate0 += 1
     iterate0 = 0
     while iterate0 < int(b) :
         items = input('Item: ')
