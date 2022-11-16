@@ -38,6 +38,37 @@ while repeatOrNot.lower() == 'y' :
     
     
     
+    # Online Python compiler (interpreter) to run Python online.
+# Write Python 3 code in this online editor and run it.
+repeatOrNot = input('Start Y/Stop N ')
+
+stringBrokenIntoList = []
+
+initialLetter = []
+
+elementWithInitialLetter = []
+
+def arrange(m) :
+    # Getting rid of , ? < !
+    for i in m :
+        if i not in initialLetter :
+            initialLetter.append(i)
+    # Loop for initialLetter
+    iterate0 = 0
+    while iterate0 < len(initialLetter) :
+        iterate1 = 0
+        while iterate1 < len(stringBrokenIntoList) :
+            print('This is second loop', stringBrokenIntoList[iterate1])
+            iterate1 += 1
+        print('This is first loop', initialLetter[iterate0])
+        iterate0 += 1
+
+while repeatOrNot.lower() == 'y' :
+    stringCollection = input('Please give string ')
+    stringCollection.split()
+    stringBrokenIntoList += stringCollection
+    arrange(stringBrokenIntoList)
+    repeatOrNot = input('Start Y/Stop N ')
     
     
     
