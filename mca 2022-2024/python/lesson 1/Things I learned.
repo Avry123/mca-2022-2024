@@ -1,0 +1,18 @@
+split()
+
+a = 'How, are you doing today?'
+
+aList = a.split()
+
+print(aList)
+
+Output => ['Hey,', 'how', 'are', 'you', 'doing', 'today?']
+
+[*string]
+
+a = 'How, are you doing today?'
+
+aList = [*a]
+
+print(aList)
+
