@@ -2,3 +2,31 @@ write a python program to read item informaton (id,name, price, qty) in file 'it
 1.SEARCH FOR SPECIFIC ITEM BY NAME.
 2.FIND COSTLIEST ITEM
 3.DISPLAY ALL ITEM AND TOTAL COST.
+
+
+
+
+#write a python program to read item informaton (id,name, price, qty) in file 'item.txt'.WRITE A menu driven program to perform the following operation using Random access file.
+#1.SEARCH FOR SPECIFIC ITEM BY NAME.
+#2.FIND COSTLIEST ITEM
+#3.DISPLAY ALL ITEM AND TOTAL COST.
+
+#with open('..\fileHandling\file1.txt') as f:
+#     line = f.read()
+#     print(line)
+
+itemName = 'CAKE'
+
+firstLetter = itemName[0:1]
+remaningLetter = itemName[1:len(itemName)].lower()
+properWord = firstLetter + remaningLetter
+with open('file1.txt') as f :
+    line = f.readline().splitlines()
+    iterate0 = 1
+#    print(line[iterate0].find(properWord))
+    print(line)
+
+
+
+
+
