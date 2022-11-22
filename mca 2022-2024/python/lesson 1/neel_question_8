@@ -1,0 +1,64 @@
+# a = [[1,2 ,3],[3,4 ,5], [5,6,7]]
+
+# b = [[10,20 , 30],[30,40, 50], [50,60,70]]
+
+# c = [[0,0 , 0], [0,0, 0], [0,0,0]]
+# iterate0 = 0
+
+# while iterate0 < len(a) :
+#     iterate1 = 0
+#     while iterate1 < len(b) :
+#         iterate2 = 0
+#         while iterate2 < len(b) :
+#             c[iterate0][iterate1] += a[iterate0][iterate2] * b[iterate2][iterate1]
+#             iterate2 += 1
+#         iterate1 += 1
+#     iterate0 += 1
+
+repeatOrNot = input('Start Y/Stop N')
+
+while repeatOrNot.lower() == 'y' :
+    a = []
+
+    b = []
+
+    c = []
+
+    noOfRowsAndColumns = input('Number of rows and columns: ')
+
+
+    iterate4 = 0
+
+    while iterate4 < int(noOfRowsAndColumns) :
+        iterate5 = 0
+        a.append([])
+        b.append([])
+        c.append([])
+        while iterate5 < int(noOfRowsAndColumns) :
+            numberToAddForA = input('Number for A: ')
+            numberToAddForB = input('Number for B: ')
+            a[iterate4].append(int(numberToAddForA))
+            b[iterate4].append(int(numberToAddForB))
+            c[iterate4].append(0)
+            iterate5 += 1
+        iterate4 += 1
+    
+    iterate0 = 0
+    while iterate0 < len(a) :
+        iterate1 = 0
+        while iterate1 < len(b) :
+            iterate2 = 0
+            while iterate2 < len(b) :
+                 c[iterate0][iterate1] += a[iterate0][iterate2] * b[iterate2][iterate1]
+                 iterate2 += 1
+            iterate1 += 1
+        iterate0 += 1
+
+    print(c)
+    a = []
+    b = []
+    c = []
+        
+    repeatOrNot = input('Start Y/Stop N')
+
+
