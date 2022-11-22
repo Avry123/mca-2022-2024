@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="parent">
+        <div class="child">
+            <label for="name10">Full Name:</label>
+            <input type="text" name="name" id="name10" required>
+            <label for="email10">Email: </label>
+            <input type="email" name="email" id="email10" required>
+            <label for="password10">Password: </label>
+            <input type="password" name="password" id="password10" required>
+            <label for="date">When would you arrive?: </label>
+            <input type="date" name="date" id="date" required>
+            <label for="depart">When would you depart?: </label>
+            <input type="date" name="date" id="depart" required>
+            <label for="noOfRooms">No Of Rooms to book: </label>
+            <input type="number" name="noOfRooms" id="noOfRooms" required>
+            <div>
+                <label for="male">Male: </label>
+                <input type="radio" name="gender" id="male" value="male">
+                <label for="female">Female</label>
+                <input type="radio" name="gender" id="female" value="female">
+            </div>
+            <label for="menu10">Select a dish you would want at your room</label>
+            <select name="menu" id="menu10">
+                <option value="Frankie">Frankie</option>
+                <option value="Pasta">Pasta</option>
+                <option value="Pizza">Pizza</option>
+                <option value="Sandwich">Sandwich</option>
+            </select>
+            <button onclick="onClick10()">Submit</button>
+            <div><h2 id="message"></h2></div>
+        </div>
+    </div>
+</body>
+<script src="../js/index.js"></script>
+</html>
