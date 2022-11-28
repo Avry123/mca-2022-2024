@@ -1,0 +1,44 @@
+import string
+
+runOrStop = input('Start Y/Stop N')
+
+upperCase = 0
+
+lowerCase = 0
+
+numbers = 0
+
+
+while runOrStop.lower() == 'y' :
+    givenString = input('Give a string: ')
+    for uLetter in string.ascii_uppercase :
+        for a in givenString :
+            if (uLetter == a) :
+                upperCase += 1
+    for lLetter in string.ascii_lowercase :
+        for a in givenString:
+            if (lLetter == a) :
+                lowerCase += 1
+    for n in range(0,10) :
+        for a in givenString :
+            if (str(n) == a) :
+                numbers += 1
+    print('upper', upperCase)
+    print('lower', lowerCase)
+    print('numbers', numbers)
+    print('special characters ', len(givenString) - upperCase - lowerCase - numbers)
+    upperCase = 0
+    lowerCase = 0
+    numbers = 0
+    runOrStop = input('Start Y/Stop N')
+
+
+
+
+
+
+    
+
+
+    
+    
