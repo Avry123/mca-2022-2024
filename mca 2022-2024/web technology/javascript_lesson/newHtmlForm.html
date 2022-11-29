@@ -9,10 +9,11 @@
 </head>
 <body>
     <div class="center_it">
-    <form class="login_form">
-        <img class="logo" src="./img/monkey wearing space suite 1.png" alt="monkey" >
+    <div class="login_form">
+        <img id="logo" src="./img/monkey wearing space suite 1.png" alt="monkey" >
         <label for="image10">Image: </label>
-        <input id="image10" type="file" src="" alt="">
+        <input type="image" name="profile" src="" onchange="onSelected()" alt="logo">
+        <!-- <input id="image10" type="image" src="" alt=""> -->
         <label for="email10">Email: </label>
         <input id="email10" type="email" name="" id="">
          <label for="password10">Password: </label>
@@ -21,17 +22,17 @@
         <input type="date" name="" id="date_of_birth">
         <div>
          <label for="male10">Male</label>
-         <input type="radio" name="male" id="male10">
+         <input type="radio" name="gender" value="male">
          <label for="female10">Female</label>
-         <input type="radio" name="female" id="female10">
+         <input type="radio" name="gender" value="female">
         </div>
         <div>
             <label for="france">French</label>
-            <input type="checkbox" name="french" id="france">
+            <input type="checkbox" name="language" value="france">
             <label for="japan">japanese</label>
-            <input type="checkbox" name="japanese" id="japan">
+            <input type="checkbox" name="language" value="japan">
             <label for="korea">Korean</label>
-            <input type="checkbox" name="korean" id="korea">
+            <input type="checkbox" name="language" value="korea">
         </div>
         <select name="favorite_country" id="favorite_country">
             <option value="Japan">Japan</option>
@@ -40,7 +41,7 @@
             <option value="Taiwan">Taiwan</option>
         </select>
         <button  onclick="collect()">Submit</button>
-    </form>
+    </div>
 </div>
 </body>
 <script>
@@ -48,16 +49,37 @@
         var filieName = document.getElementById('image10').value;
         var email = document.getElementById('email10').value;
         var password = document.getElementById('password10').value;
-        var dob = document.getElementById('date_of_birht').value;
-        var male = document.getElementById('male10').value;
-        var female = document.getElementById('female10').value;
-        if (male) {
-            var gender = male
-        } else {
-            var gender = female
+        // var dob = document.getElementById('date_of_birht').value;
+        var gender = document.getElementsByName('gender');
+        var iterate0 = 0 
+        while (iterate0 < gender.length) {
+            if (gender[iterate0].checked == true) {
+                gender = gender[iterate0].value
+                console.log(gender)
+            }
+            iterate0 += 1
         }
-       console.log(gender)
 
+        var course = document.getElementsByName('language')
+
+        var iterate1 = 0
+        var languageKnown = ' '
+        while (iterate1 < course.length) {
+            if (course[iterate1].checked == true) {
+               languageKnown += ' ' + course[iterate1].value
+            }
+            iterate1 += 1
+        }
+
+
+
+    }
+
+    function onSelected() {
+        var fileImg = document.getElementsByName('profile').value ;
+        if (fileImg) {
+            document.getElementById('logo').src = fileImg
+        }
     }
 </script>
 </html>
