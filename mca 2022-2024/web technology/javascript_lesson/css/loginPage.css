@@ -19,3 +19,25 @@
     border:0px;
     border-radius: 20px;
 }
+
+#logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+input {
+    height: 20px;
+    border-radius: 10px;
+    border:0px;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    border:0px;
+    background: black;
+    font-weight: bold;
+    color: white;
+}
+
