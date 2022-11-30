@@ -9,10 +9,10 @@
 </head>
 <body>
     <div class="center_it">
-    <div class="login_form">
+    <form class="login_form" action="./formAndAttributes.html">
         <img id="logo" src="./img/monkey wearing space suite 1.png" alt="monkey" >
         <label for="image10">Image: </label>
-        <input type="image" name="profile" src="" onchange="onSelected()" alt="logo">
+        <input type="file" id="ppf" name="profile" onchange="profile10()"  alt="logo">
         <!-- <input id="image10" type="image" src="" alt=""> -->
         <label for="email10">Email: </label>
         <input id="email10" type="email" name="" id="">
@@ -41,7 +41,7 @@
             <option value="Taiwan">Taiwan</option>
         </select>
         <button  onclick="collect()">Submit</button>
-    </div>
+    </form>
 </div>
 </body>
 <script>
@@ -75,11 +75,15 @@
 
     }
 
-    function onSelected() {
-        var fileImg = document.getElementsByName('profile').value ;
-        if (fileImg) {
-            document.getElementById('logo').src = fileImg
-        }
-    }
+   function profile10() {
+     var input = document.getElementById('ppf')
+     var freader = new FileReader()
+     freader.readAsDataURL(input.files[0])
+     freader.onloadend = function (event) {
+        var img = document.getElementById('logo')
+        img.src = event.target.result;
+     }
+   }
+    
 </script>
 </html>
