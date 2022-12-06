@@ -1,0 +1,79 @@
+CREATE TABLE supplier2 (
+supplier_id number(10) NOT NULL,
+supplier_name VARCHAR(50) NOT NULL,
+contact_name VARCHAR(250),
+CONSTRAINT supplier2_pk PRIMARY KEY(supplier_id,supplier_name)
+);
+
+CREATE TABLE customer (
+customer_id INT,
+customer_name VARCHAR2(20),
+age INT,
+address VARCHAR2(25),
+salary NUMBER(10,2) DEFAULT 5000,
+CONSTRAINT customer_pk PRIMARY KEY(customer_id)
+);
+
+CREATE TABLE employee(
+id NUMBER(5) NOT NULL PRIMARY KEY,
+emp_name VARCHAR(20) NOT NULL,
+address VARCHAR(30),
+age INT,
+salary NUMBER(10,2),
+contact VARCHAR(10),
+CONSTRAINT age_chk CHECK(age > 18) 
+);
+
+CREATE TABLE department(
+id INT NOT NULL PRIMARY KEY,
+dept_name VARCHAR(20) );
+
+CREATE TABLE employee1(
+employee_number NUMBER(10) NOT NULL PRIMARY KEY,
+employee_name VARCHAR(50) NOT NULL,
+department_id NUMBER(10),
+salary NUMBER(8),
+CONSTRAINT fk_department 
+FOREIGN KEY (department_id)
+REFERENCES department(id) );
+
+CREATE TABLE faculty (
+faculty_id INT NOT NULL PRIMARY KEY,
+faculty_name VARCHAR(20) NOT NULL,
+designation VARCHAR(20) );
+
+
+CREATE TABLE student(
+stu_id INT NOT NULL PRIMARY KEY,
+stu_name VARCHAR(20) NOT NULL,
+faculty_id INT,
+CONSTRAINT fk_faculty
+FOREIGN KEY(faculty_id)
+REFERENCES faculty(faculty_id));
+
+INSERT ALL
+INTO customer VALUES(106,'Nikol Jokic', 28, 'Serbia', 5000)
+INTO customer VALUES(107, 'Giannis', 24, 'Greek', 4500)
+SELECT * FROM dual;
+
+INSERT INTO employee VALUES(null, 'Mangesh Chalke', 'Mumbai', 24, 3000, 'gmail.com');
+
+ALTER TABLE customer ADD email VARCHAR(25);
+
+ALTER TABLE customer ADD city VARCHAR2(40) DEFAULT 'Seattle';
+
+ALTER TABLE customer ADD (
+hobbies VARCHAR(20) ,
+movie VARCHAR(14) );
+
+ALTER TABLE customer
+MODIFY city VARCHAR(15);
+
+ALTER TABLE customer
+MODIFY city VARCHAR(15) DEFAULT 'Seattle' NOT NULL;
+
+ALTER TABLE customer
+MODIFY (
+customer_name VARCHAR(100) NOT NULL,
+city VARCHAR(75) DEFAULT 'Seattle' NOT NULL);
+          
