@@ -37,6 +37,8 @@ CONSTRAINT fk_department
 FOREIGN KEY (department_id)
 REFERENCES department(id) );
 
+
+
 CREATE TABLE faculty (
 faculty_id INT NOT NULL PRIMARY KEY,
 faculty_name VARCHAR(20) NOT NULL,
@@ -79,6 +81,8 @@ city VARCHAR(75) DEFAULT 'Seattle' NOT NULL);
 
 OR and AND orperator
 
+16.12.22
+
 SELECT column1, column2, columnN
 FROM table_name
 WHERE [condition1] and [condition2].... AND [conditionN];
@@ -94,3 +98,121 @@ SELECT * FROM dual;
 SELECT * 
 FROM supplier
 WHERE (supplier_name = 'Maharashtra' AND supplier_id = 101) OR (supplier_id < 100);
+
+Comparison Operator.
+
+= Equal
+<> Not Equal
+!= Not Equal
+> Greater Than
+>= Greater Than Equal
+< Less Than
+<= Less than equal
+IN() Matches a value in a list.
+NOT Negates a condition
+Between Within a range (inclusive)
+IS NULL Null value
+IS NOT NULL non null value
+LIKE Pattern matching with % and _
+REGEXP_LIKE Pattern matching with regular expressions
+EXISTS Condition is met if subquery return at least one row.
+
+SELECT * FROM customer1;
+
+SELECT * 
+FROM customer1
+WHERE customer_name = 'Manu';
+
+SELECT * 
+FROM customer1
+WHERE customer_name != 'Manu';
+
+SELECT * 
+FROM customer1
+WHERE customer_name <> 'Manu';
+
+
+SELECT * 
+FROM customer1
+WHERE salary > 5000;
+
+SELECT * 
+FROM customer1
+WHERE salary >= 5000;
+
+SELECT * 
+FROM customer1
+WHERE salary < 5000;
+
+SELECT * 
+FROM customer1
+WHERE salary <= 5000;
+
+SELECT *
+FROM customer1
+WHERE salary BETWEEN 4080 AND 5000;
+
+SELECT * 
+FROM customer1
+WHERE salary NOT BETWEEN 4080 AND 5000;
+
+INSERT INTO customer1 VALUES(108,'Manu', 24, 'Argentina', 4500,  'manu@gmail.com', 'San Antonio', 'Basketball');
+
+SELECT DISTINCT customer_name
+FROM customer1
+WHERE customer_id = 101;
+
+SELECT customer_name 
+From customer1;
+
+CREATE TABLE hospital(
+department_id INT NOT NULL PRIMARY KEY,
+name VARCHAR2(20),
+location VARCHAR2(25),
+head_dr INT,
+CONSTRAINT fk_doctor
+FOREIGN KEY (head_dr)
+REFERENCES doctor(doc_id)
+);
+
+CREATE TABLE doctor(
+doc_id INT NOT NULL PRIMARY KEY,
+fname VARCHAR2(10),
+lname VARCHAR2(10),
+special VARCHAR2(15),
+salary NUMBER(10,2),
+address VARCHAR2(20),
+phone INT
+);
+
+CREATE TABLE patient(
+p_id INT NOT NULL PRIMARY KEY,
+p_name VARCHAR2(15),
+p_age NUMBER(2),
+p_address VARCHAR2(25),
+p_phone INT
+);
+
+CREATE TABLE consult(
+p_id INT NOT NULL,
+doc_id INT NOT NULL,
+department_id INT NOT NULL,
+disease VARCHAR2(10),
+status VARCHAR2(10),
+CONSTRAINT fk_person
+FOREIGN KEY(p_id)	
+REFERENCES patient(p_id),
+CONSTRAINT fk_doctor_second
+FOREIGN KEY(doc_id)
+REFERENCES doctor(doc_id),
+CONSTRAINT fk_department_second
+FOREIGN KEY(department_id)
+REFERENCES hospital(department_id)
+);
+
+
+
+
+
+
+
