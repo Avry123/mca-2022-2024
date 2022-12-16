@@ -76,4 +76,21 @@ ALTER TABLE customer
 MODIFY (
 customer_name VARCHAR(100) NOT NULL,
 city VARCHAR(75) DEFAULT 'Seattle' NOT NULL);
+
+OR and AND orperator
+
+SELECT column1, column2, columnN
+FROM table_name
+WHERE [condition1] and [condition2].... AND [conditionN];
           
+SELECT * FROM supplier;
+
+INSERT ALL 
+INTO supplier VALUES(101, 'Maharashtra', '12345')
+INTO supplier VALUES(102, 'Delhi', '12324')
+INTO supplier VALUES(103, 'Goa', '21345')
+SELECT * FROM dual;
+
+SELECT * 
+FROM supplier
+WHERE (supplier_name = 'Maharashtra' AND supplier_id = 101) OR (supplier_id < 100);
