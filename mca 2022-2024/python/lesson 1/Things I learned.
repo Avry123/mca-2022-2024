@@ -16,3 +16,133 @@ aList = [*a]
 
 print(aList)
 
+#How to remove a specific character from a string
+
+a = 'Neel Chalke'
+
+a = a.replace('e', '')
+
+print(a)
+
+#Output: Nl Chalk
+
+#Question to remind yourself.
+
+a = 'Hello'
+
+print(a[::-1])
+
+# Output => olleh
+
+#Different keyword I learned today:
+
+isinstance:  isinstance(object, classinfo) is a built-in function in Python that returns True if the object is an instance of the class or a subclass of the class, and False
+otherwise.
+
+a = [1, 2, 3]
+b = 'abc'
+c = 123
+
+print(isinstance(a, list))  # Output: True
+print(isinstance(b, str))  # Output: True
+print(isinstance(c, int))  # Output: True
+print(isinstance(c, (int, float)))  # Output: True
+print(isinstance(b, (int, float)))  # Output: False
+
+#Different errors I received today.
+
+#How to use enumerate properly.
+
+#TypeError: 'set' object is not subscriptable
+
+#RuntimeError: Set changed size during iteration
+
+#AttributeError: module 'string' has no attribute 'ascii_upperletter'. Did you mean: 'ascii_uppercase'?
+
+fruits = ['apple','orange']
+
+for index, item in enumerate(fruits):
+    print(index)
+    
+#It starts from 0.
+
+TypeError: 'set' object is not subscriptable
+
+#def evenEleminate(m):
+#    a = set(m)
+#    for x , numbers in enumerate(a):
+#        if (a[x]%2 == 0) : what you are trying to do is slicing and slicing is not supported by set, it is only supported by tuple, list and string.
+#            a.remove()
+#    return a
+
+RuntimeError: Set changed size during iteration
+
+#def evenEleminate(m) :
+#    a = set(m)
+#    for i in a:
+#        if (i%2 == 0):
+#            a.remove(i)
+#    print(a)
+
+#evenEleminate([1,2,3,4,5,6,7,8,9,10])
+#What is happedning here is that the movement the item is removed it throws a monkey wrench into the whole looping process.
+
+#AttributeError: module 'string' has no attribute 'ascii_upperletter'. Did you mean: 'ascii_uppercase'?
+
+#ChatGPT questions.
+
+#1. 
+
+def foo(x):
+    if isinstance(x, bool):
+        return not x
+    elif isinstance(x, str):
+        return x.upper()
+    elif isinstance(x, list):
+        return sorted(x, reverse=True)
+    else:
+        return None
+
+a = [3, 2, 1]
+b = 'abc'
+c = True
+d = 123
+
+print(foo(a)) # [1,2,3] 
+Right Answer: [3,2,1]
+print(foo(b)) # 'ABC'
+print(foo(c)) # False
+print(foo(d)) # None 
+
+#2
+
+def foo(x, y):
+    if isinstance(x, int) and isinstance(y, int):
+        return x // y
+    elif isinstance(x, str) and isinstance(y, str):
+        return x + ' ' + y
+    elif isinstance(x, list) and isinstance(y, list):
+        return [i + j for i, j in zip(x, y)]
+    else:
+        return None
+
+a = [1, 2, 3]
+b = 'abc'
+c = 123
+d = 'def'
+e = [4, 5, 6]
+
+print(foo(a, e)) #14,42,897
+print(foo(b, d)) #abc def
+print(foo(c, 3)) #18601867
+print(foo(c, d)) #none
+print(foo(a, b)) #5, 7, 9
+
+
+
+
+
+
+
+
+
