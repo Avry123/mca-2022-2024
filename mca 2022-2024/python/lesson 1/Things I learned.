@@ -24,6 +24,35 @@ a = a.replace('e', '')
 
 print(a)
 
+#Module
+
+#argparse
+
+import argparse
+
+try :
+     parser = argparse.ArgumentParser()
+     parser.add_argument('a', type=int, help='Give me first number ')
+     parser.add_argument('b', type=int, help='Give me second number')
+     args = parser.parse_args()
+     print('The sum is ', args.a + args.b)
+except e :
+   print('The error is,  ', e)
+   
+#This one is capable of taking list
+import argparse
+
+try :
+    parser = argparse.ArgumentParser()
+    parser.add_argument('a', nargs='+', type=int, help='give numbers ')
+    args = parser.parse_args()
+    print('The list is ', args.a)
+except e :
+    print(e)
+
+
+
+
 #Output: Nl Chalk
 
 #Question to remind yourself.
