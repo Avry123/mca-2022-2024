@@ -38,6 +38,12 @@ repeatOrNot = input('start Y/stop N')
 while repeatOrNot.lower() == 'y' :
     character = input('Give me a character ')
     color = Color(character)
-    color.checkColor()
+    try :
+        color.checkColor()
+    except Exception as e:
+        print(e)
+    finally :
+        repeatOrNot = input('Start Y/Stop N')
+    
     
     
