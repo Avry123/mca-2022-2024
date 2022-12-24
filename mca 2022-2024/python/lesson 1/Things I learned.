@@ -28,6 +28,8 @@ print(a)
 
 #argparse
 
+#re
+
 import argparse
 
 try :
@@ -51,6 +53,36 @@ except e :
     print(e)
 
 
+#Does the word exists or not
+
+import re
+
+text = "This is a sentence with the word word in it."
+
+wordToFind = input('Find these word ')
+
+match = re.search(r'\b' + wordToFind + r'\b', text)
+
+if match :
+    print('exists')
+else :
+    print('it does not exists')
+    
+#Find the index of the word.
+
+import re
+
+a = 'This is the to find the index to find'
+
+inputWord = input('Give us a string ')
+
+#match = re.search(r'\b@\b', a)
+match = re.search(r'\b' + inputWord + r'\b', a)
+
+if (match) :
+    print('The index is, ', match.start())
+else :
+    print('These does not exists')
 
 
 #Output: Nl Chalk
