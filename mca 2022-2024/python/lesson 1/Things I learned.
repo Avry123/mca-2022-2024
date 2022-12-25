@@ -100,7 +100,8 @@ import re
 #Finding lowercase letter.
 
 string = "Hello, World!"
-pattern = "[a-z]"
+#this will only help in finding lowercase letters
+pattern = r"[a-z]"
 letters = re.findall(pattern, string)
 print(letters)
 
@@ -108,7 +109,17 @@ print(letters)
 
 string = 'Hello World'
 
-pattern = '[a-zA-Z]'
+#this will help you find all the uppercase letter
+pattern = r'[a-zA-Z]'
+
+match = re.findall(pattern,string)
+
+print(match)
+
+#Output => ['H', 'e', 'l', 'l', 'o', 'W', 'o', 'r', 'l', 'd']
+
+# This will help you find special characters but be careful because it also considers ' ', as a special character
+pattern = r'[^-a-zA-Z0-9]'
 
 match = re.findall(pattern,string)
 
