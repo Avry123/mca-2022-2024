@@ -87,6 +87,25 @@ else :
 
 #Output: Nl Chalk
 
+import re
+
+#Finding lowercase letter.
+
+string = "Hello, World!"
+pattern = "[a-z]"
+letters = re.findall(pattern, string)
+print(letters)
+
+#Finding lower case and upper case letter.
+
+string = 'Hello World'
+
+pattern = '[a-zA-Z]'
+
+match = re.findall(pattern,string)
+
+print(match)
+
 #Question to remind yourself.
 
 a = 'Hello'
