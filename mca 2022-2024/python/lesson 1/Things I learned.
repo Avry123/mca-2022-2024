@@ -1,5 +1,7 @@
 split()
 
+count()
+
 a = 'How, are you doing today?'
 
 aList = a.split()
@@ -23,6 +25,12 @@ a = 'Neel Chalke'
 a = a.replace('e', '')
 
 print(a)
+
+string = 'Hello World'
+
+print(string.count('l'))
+
+#Ouput => 2
 
 #Module
 
