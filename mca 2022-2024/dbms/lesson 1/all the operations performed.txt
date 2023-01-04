@@ -210,6 +210,252 @@ FOREIGN KEY(department_id)
 REFERENCES hospital(department_id)
 );
 
+#4-01-2023.
+
+IN operator.
+
+select * from hospital where name = 'Cardiology' OR name = 'Neurology'; 
+
+SELECT * FROM hospital WHERE name IN ('Cardiology', 'Neurology');
+
+SELECT * FROM doctor where special NOT IN('Cardiology', 'Neurology');
+
+SELECT * FROM hospital WHERE location LIKE '1%';
+
+#Capitalization is of great importance over here.
+SELECT * FROM patient WHERE p_name LIKE 'N%';
+
+
+SELECT FNAME , LNAME from doctor WHERE lname LIKE '%e';
+
+#Fetches only one character.
+
+#400 , 500.
+
+SELECT * FROM consult WHERE fee LIKE '_00' ;
+
+ALL Operator. A query within a query.
+
+SELECT * FROM customer WHERE p_age > ALL(SELECT p_age FROM customer WHERE amount > 6500);
+
+SELECT p_id, did , duplicate from  consult where fee > ALL(1000,70);
+
+SELECT p_id, did, duplicate from consult where fee(70,1000);
+
+SELECT * FROM department ORDER BY d_name ASC;
+
+SELECT * FROM consult ORDERBY patient_id ASC , amount ASC;
+
+SELECT * FROM consult ORDER BY patient_id ASC , consult_id DESC;
+
+SELECT * FROM hospital ORDER BY name;
+
+Fetch the details of patients with ascending order of name and descending order of amount.
+SELECT * FROM patient ORDER BY p_name ASC, amount DESC;
+
+INSERT ALL
+ INTO hospital VALUES (1, 'Cardiology', '1 Floor', 1)
+ INTO hospital VALUES (2, 'Oncology', '2 Floor', 2)
+ INTO hospital VALUES (3, 'Neurology', '3 Floor', 3)
+ INTO hospital VALUES (4, 'Dermatology', '4 Floor', 4)
+ INTO hospital VALUES (5, 'Pediatrics', '5 Floor', 5)
+SELECT * FROM DUAL;
+
+INSERT INTO hospital (department_id, name, location, head_dr)
+VALUES (2, 'Oncology', '2 Floor', 2);
+
+INSERT INTO hospital (department_id, name, location, head_dr)
+VALUES (3, 'Neurology', '3 Floor', 3);
+
+INSERT INTO hospital (department_id, name, location, head_dr)
+VALUES (4, 'Dermatology', '4 Floor', 4);
+
+INSERT INTO hospital (department_id, name, location, head_dr)
+VALUES (5, 'Pediatrics', '5 Floor', 5);
+
+
+Doctor.
+
+INSERT ALL 
+INTO doctor  VALUES (1, 'John', 'Doe', 'Cardiology', 50000, '123 Main St', 123456)
+INTO doctor  VALUES (2, 'Jane', 'Doe', 'Oncology', 60000, '456 Main St', 789012)
+INTO doctor  VALUES (3, 'Bob', 'Smith', 'Neurology', 70000, '789 Main St', 345678)
+INTO doctor  VALUES (4, 'Samantha', 'Johnson', 'Dermatology', 80000, '321 Main St', 901234)
+INTO doctor  VALUES (5, 'Michael', 'Williams', 'Pediatrics', 90000, '654 Main St', 567890)
+SELECT * FROM DUAL;
+
+Patient.
+
+INSERT ALL 
+INTO patient VALUES (1, 'John Doe', 35, '123 Main Street', 5551234)
+INTO patient VALUES (2, 'Jane Smith', 28, '456 Maple Avenue', 5551235)
+INTO patient VALUES(3, 'Bob Johnson', 43, '789 Oak Road', 5551236)
+INTO patient VALUES(4, 'Alice Williams', 45, '321 Birch Street', 5551237)
+INTO patient VALUES(5, 'Mike Thompson', 38, '654 Pine Drive', 5551238)
+SELECT * FROM DUAL;
+
+INSERT INTO patient (p_id, p_name, p_age, p_address, p_phone)
+
+INSERT INTO patient (p_id, p_name, p_age, p_address, p_phone) VALUES 
+
+INSERT INTO patient (p_id, p_name, p_age, p_address, p_phone) VALUES 
+
+INSERT INTO patient (p_id, p_name, p_age, p_address, p_phone) VALUES 
+
+Consult table.
+
+
+INSERT ALL
+INTO consult VALUES (1, 1, 1, 'Flu', 'Treated')
+INTO consult VALUES (2, 2, 1, 'Asthma', 'Treated')
+INTO consult VALUES (3, 3, 2, 'Diabetes', 'Treated')
+INTO consult VALUES (4, 4, 2, 'Alzhimers', 'Treated')
+INTO consult VALUES (5, 5, 3, 'Cancer', 'Treated')
+SELECT * FROM DUAL;
+
+
+INSERT INTO consult (p_id, doc_id, department_id, disease, status)
+
+INSERT INTO consult (p_id, doc_id, department_id, disease, status)
+
+
+INSERT INTO consult (p_id, doc_id, department_id, disease, status)
+
+
+INSERT INTO consult (p_id, doc_id, department_id, disease, status)
+
+
+
+
+INSERT INTO hospital (department_id, name, location, head_dr)
+VALUES (6, 'Orthopedics', '6 Floor', 213);
+
+INSERT INTO hospital (department_id, name, location, head_dr)
+VALUES (7, 'Urology', '7 Floor', 314);
+
+INSERT INTO hospital (department_id, name, location, head_dr)
+VALUES (8, 'Gastroenterology', '8 Floor', 415);
+
+INSERT INTO hospital (department_id, name, location, head_dr)
+VALUES (9, 'Ophthalmology', '9 Floor', 516);
+
+INSERT INTO hospital (department_id, name, location, head_dr)
+VALUES (10, 'General Surgery', '10 Floor', 617);
+
+
+CREATE TABLE employee2(
+eno INT NOT NULL PRIMARY KEY,
+ename VARCHAR2(30),
+designation VARCHAR2(40),
+age INT,
+dname VARCHAR2(30),
+dno INT,
+salary NUMBER(10,2)
+);
+
+INSERT ALL 
+INTO employee2 VALUES(101, 'Hari', 'Analyst', 28, 'Sales', 2 , 50000.00)
+INTO employee2 VALUES(102, 'Mahesh', 'Manager',  35, 'Sales', 2 , 25000.00)
+INTO employee2 VALUES(103, 'Janvi' , 'Analyst', 30, 'Finance', 1, 80000.00)
+INTO employee2 VALUES(104, 'Sumi', 'Developer' , 24, 'IT', 4 , 20000.00)
+INTO employee2 VALUES(105, 'Pratik' , 'Tester', 22, 'IT', 3, 15000.00)
+SELECT * FROM dual;
+
+Give the total
+SELECT sum(salary) AS Total_Salary FROM employee2;
+
+Finds the maximum value in a column
+SELECT max(salary) AS Maximum_Salary FROM employee2;
+
+Count the number of employees who are earning more than 50,000
+
+SELECT COUNT(*) FROM employee2 WHERE salary > 50000;
+
+Find the minimum salary
+SELECT min(salary) AS MINIMUM_SALARY FROM employee2;
+
+Find the average salary
+
+SELECT AVG(salary) AS AVERAGE_SALARY FROM employee2;
+
+How many employees working in each department.
+SELECT dno, count(*) FROM employee2 GROUP BY dno;
+
+SELECT dname, count(*) FROM employee2 GROUP BY dname;
+
+Total salary for each department.
+
+SELECT dno ,  dname, SUM(salary) FROM employee2 GROUP BY dno,dname;
+
+Average salary for each designation.
+
+SELECT dno, dname, AVG(salary) FROM employee2 GROUP BY dno , dname;
+
+Average salary for each designation.
+
+SELECT dno, dname, avg(salary) FROM employee2 group by dno,dname;
+
+
+SELECT dno, dname, min(salary) FROM employee2 group by dno,dname;
+
+SELECT dno, dname, max(salary) FROM employee2 GROUP BY dno,dname;
+
+
+Display the departments with number of employees more than one.
+
+SELECT dno, COUNT(*) FROM employee2 GROUP BY dno HAVING COUNT(*) > 1;
+
+Display the designation with number of employees more than 1
+
+SELECT designation , COUNT(*) FROM employee2 GROUP BY designation HAVING COUNT(*) > 1;
+
+ROLLUP()
+
+SELECT dname, sum(salary) FROM employee2 GROUP BY ROLLUP(dname , eno);
+
+Subqueries()
+
+Write a query to find the highest salary
+
+SELECT max(salary) FROM employee2;
+
+fetch all the detials of the employee whose salary is the highest.
+
+SELECT * FROM employee2 WHERE salary = (SELECT max(salary) FROM employee2);
+
+CREATE TABLE product(
+pid INT,
+pd_name VARCHAR2(35),
+price NUMBER(10,3),
+cat int
+);
+
+INSERT ALL
+INTO product VALUES(1, 'laptop'  , 250 , 10)
+INTO product VALUES(2, 'ram'     ,   250,  10)
+INTO product VALUES(3, 'refriger', 350, 20)
+INTO product VALUES(4, 'oven'    ,     180, 20)
+INTO product VALUES(5, 'mixer'   ,   70, 20)
+SELECT * FROM DUAL;
+
+
+Find the price of the product with product id 4
+
+SELECT * FROM product WHERE pid = 4;
+
+Find the details of products cost more that than product with pid 4:
+
+SELECT * FROM product WHERE price > 180;
+
+Single Row Subqueries
+
+SELECT * FROM product WHERE price > (SELECT price FROM product WHERE pid = 4);
+
+Multiple Row subqueries 
+
+SELECT * FROM product where price in (select price from product where cat= 20);
+
+
 
 
 
