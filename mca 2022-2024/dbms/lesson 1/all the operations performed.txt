@@ -455,6 +455,137 @@ Multiple Row subqueries
 
 SELECT * FROM product where price in (select price from product where cat= 20);
 
+Case Conversion
+
+LOWER('SQL Course') 
+UPPER('SQL Course')
+INITCAP('SQL Course')
+
+SELECT LOWER('ORACLE')  FROM dual;
+
+SELECT UPPER('oracle')  FROM dual;
+
+SELECT INITCAP('oracle database')  FROM DUAL;
+
+CONCAT('Good', 'String')
+
+SELECT CONCAT('Good', 'String') FROM DUAL;  
+
+SELECT 'Neel' || ' ' || 'Chalke' AS full_name FROM dual;
+ 
+
+
+SUBSTR('String', 1, 3)
+
+SELECT SUBSTR('String', 1, 3) FROM DUAL;  
+
+SELECT substr('database', 3, 3) FROM DUAL;
+
+
+LENGTH('String')
+
+SELECT LENGTH('String') FROM DUAL;  
+
+INSTR('String', 'r')
+
+SELECT INSTR('String', 'r') FROM DUAL;  
+
+SELECT INSTR('Oracle Database', 'base') FROM dual;
+
+
+LPAD(sal,10,'*')
+
+SELECT LPAD(sal,10,'*') FROM DUAL;  
+
+SELECT LPAD('name', 10, '#') FROM DUAL;
+RPAD(fname,10,'*')
+
+SELECT RPAD('sal',10,'*') FROM DUAL;  
+
+SELECT RPAD('name', 10, '#') FROM dual;
+
+SELECT ASCII('a') FROM dual;
+
+ASCII('A')
+
+SELECT ASCII('A') FROM DUAL;  
+
+Translate
+
+SELECT TRANSLATE('abc1ef34', '134', 'ABC') FROM DUAL;
+
+
+TRIM
+
+SELECT TRIM('  Oracle ') FROM DUAL;
+
+SELECT TRIM(leading 'x' from 'xxxxOraclexxx') FROM dual;
+
+SELECT TRIM(TRAILING'x' from 'xxxxOraclexxx') FROM DUAL;
+
+SELECT TRIM(both'x' from 'xxxxOraclexxx') FROM DUAL;
+
+
+LTRIM
+
+SELECT LTRIM('  Oracle') FROM DUAL;
+
+RTRIM
+
+SELECT RTRIM('ORACLE  ') FROM DUAL;
+
+SELECT RTRIM('Oracle', 'O') FROM dual;
+
+SELECT RTRIM('Oracle', 'cle') FROM dual;
+
+SELECT TRIM(' oracle ') FROM DUAL;
+
+Numeric functions
+
+ABS(n) :absolute value of n
+POWER(M,N) m^n
+ROUND(M,N) n rounded ot m places
+SQRT(n) square root of n
+EXP(N) e^n
+EXTRACT() value extracted from a date
+GREATEST() : greatest value in the list
+LEAST() : least value in the list
+MOD(M,N) : remainder of m/n
+TRUNC() : number truncated to a certain number of decimal places.
+FLLOR(M) largest integer <= n
+CEIL(N) smallest integer >- n
+
+SELECT ABS(-5) FROM DUAL;
+
+SELECT POWER(2,4) FROM DUAL;
+
+SELECT ROUND(4.5,5) FROM DUAL;
+
+SELECT  SQRT(20) FROM DUAL;
+
+SELECT EXP(10) FROM DUAL;
+
+SELECT EXTRACT(YEAR FROM '23/01/05') FROM DUAL;
+
+SELECT GREATEST(1,2,3,4,54,5) FROM DUAL;
+
+SELECT LEAST(1,3,34,4,4,5,4) FROM DUAL;
+
+SELECT MOD(10,2) FROM DUAL;
+
+SELECT TRUNC(10.23245243) FROM DUAL;
+
+SELECT FLOOR(12.2334) FROM DUAL;
+
+SELECT CEIL(12) FROM DUAL;
+
+
+
+
+
+
+
+
 
 
 
