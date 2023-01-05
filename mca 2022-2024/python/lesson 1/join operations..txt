@@ -1,0 +1,55 @@
+#Joining Tables.
+
+SELECT table1.column, table2.column
+FROM table1, table2
+WHERE table1.column1 =  table2.column2;
+
+Write the join condition in the where clause.
+
+CREATE TABLE location(
+locid INT NOT NULL PRIMARY KEY,
+location VARCHAR(45));
+
+INSERT ALL 
+INTO location VALUES (1, 'Dadar')
+INTO location VALUES (2, 'Sion')
+INTO location VALUES (3, 'Venice')
+INTO location VALUES (4, 'Vashi')
+INTO location VALUES (5 , 'Tokyo')
+SELECT * FROM dual;
+
+Create TABLE department10(
+did INT NOT NULL PRIMARY KEY,
+dname VARCHAR(45),
+locid INT,
+CONSTRAINT locid_fk
+FOREIGN KEY (locid)
+REFERENCES location(locid) );
+
+INSERT ALL
+INTO department10 VALUES(1,'type 1', 1)
+INTO department10 VALUES(2,'type 2', 2)
+INTO department10 VALUES(3,'type 3', 3)
+INTO department10 VALUES(4,'type 4', 4)
+INTO department10 VALUES(5,'type 5', 5)
+SELECT * FROM DUAL;
+
+UPDATE employee SET dno = 1 WHERE id = 1;
+
+UPDATE employee SET dno = 2 WHERE id = 2;
+
+UPDATE employee SET dno = 3 WHERE id = 3;
+
+UPDATE employee SET dno = 4 WHERE id = 4;
+
+UPDATE employee SET dno = 5 WHERE id = 5;
+
+
+ALTER TABLE employee ADD dno INT;
+
+ALTER TABLE employee ADD CONSTRAINT fk_doc10 FOREIGN KEY(dno) REFERENCES department10(did);
+
+Queries:
+
+1.
+
