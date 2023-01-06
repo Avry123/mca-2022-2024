@@ -1,0 +1,175 @@
+#Joining Tables.
+
+SELECT table1.column, table2.column
+FROM table1, table2
+WHERE table1.column1 =  table2.column2;
+
+Write the join condition in the where clause.
+
+CREATE TABLE location(
+locid INT NOT NULL PRIMARY KEY,
+location VARCHAR(45));
+
+INSERT ALL 
+INTO location VALUES (1, 'Dadar')
+INTO location VALUES (2, 'Sion')
+INTO location VALUES (3, 'Venice')
+INTO location VALUES (4, 'Vashi')
+INTO location VALUES (5 , 'Tokyo')
+SELECT * FROM dual;
+
+Create TABLE department10(
+did INT NOT NULL PRIMARY KEY,
+dname VARCHAR(45),
+locid INT,
+CONSTRAINT locid_fk
+FOREIGN KEY (locid)
+REFERENCES location(locid) );
+
+INSERT ALL
+INTO department10 VALUES(1,'type 1', 1)
+INTO department10 VALUES(2,'type 2', 2)
+INTO department10 VALUES(3,'type 3', 3)
+INTO department10 VALUES(4,'type 4', 4)
+INTO department10 VALUES(5,'type 5', 5)
+SELECT * FROM DUAL;
+
+UPDATE employee SET dno = 1 WHERE id = 1;
+
+UPDATE employee SET dno = 2 WHERE id = 2;
+
+UPDATE employee SET dno = 3 WHERE id = 3;
+
+UPDATE employee SET dno = 4 WHERE id = 4;
+
+UPDATE employee SET dno = 5 WHERE id = 5;
+
+
+ALTER TABLE employee ADD dno INT;
+
+ALTER TABLE employee ADD CONSTRAINT fk_doc10 FOREIGN KEY(dno) REFERENCES department10(did);
+
+Queries:
+
+1.
+SELECT employee.id, employee.emp_name , employee.dno, department10.dname
+FROM employee ,  department10 
+WHERE employee.id = department10.did;
+
+Extract details of employee working in all the departments and arranging accordingly.
+SELECT emp.id, emp.emp_name , emp.dno, dept.dname
+FROM employee emp ,  department10 dept 
+WHERE emp.id = dept.did;
+
+CREATE TABLE grade(
+gra VARCHAR2(2),
+lowest_sal NUMBER(10,3),
+highest_sal NUMBER(10,3)
+);
+
+INSERT ALL 
+INTO grade VALUES('A', 1000, 2999)
+INTO grade VALUES('B', 3000, 5999)
+INTO grade VALUES('C', 6000, 9999)
+INTO grade VALUES('D', 10000, 14999)
+INTO grade VALUES('E', 15000, 24999)
+INTO grade VALUES('F', 25000, 40000)
+SELECT * FROM DUAL;
+
+SELECT e.emp_name, e.salary, g.gra
+FROM employee e , grade g
+WHERE e.salary BETWEEN g.lowest_sal AND g.highest_sal;
+
+Fetching details of more than two tables.
+
+SELECT e.id , e.emp_name, d.dname, l.locid
+FROM employee e, department10 d, location l
+WHERE e.id = d.did AND d.locid = l.locid;
+
+customer id , product name and address
+
+6/1/23.
+
+SELECT c.custid, p.name, c.address 
+FROM customer2 c , product1 p, order1 o
+WHERE c.custid = p.prodid AND c.custid = o.orderid;
+
+SELECT c.custid, p.name, c.address
+FROM customer2 c INNER JOIN product1 p
+ON c.custid = p.prodid;
+
+INSERT ALL 
+INTO department VALUES(1, 'Department1')
+INTO department VALUES(2, 'Department2')
+INTO department VALUES(3, 'Department3')
+INTO department VALUES(4, 'Department4')
+INTO department VALUES(5, 'Department5')
+SELECT * FROM DUAL;
+
+lEFT OUTER JOIN.
+
+SELECT e.emp_name, e.id, d.id
+FROM employee e LEFT OUTER JOIN department d
+ON e.dno = d.id;
+
+SELECT p.prodid, p.name, p.unitprice, o.qty , o.price
+FROM product1 p LEFT OUTER JOIN order1 o
+ON p.prodid = o.prodid;
+
+INSERT ALL 
+INTO department VALUES(6, 'Department6')
+SELECT * FROM DUAL;
+
+SELECT e.emp_name, e.dno, d.dept_name
+FROM employee e RIGHT OUTER JOIN department d
+ON e.dno = d.id;
+
+SELECT o.prodid, p.prodid, p.name, p.unitprice, o.qty, o.price
+FROM product1 p RIGHT OUTER JOIN order1 o
+ON o.prodid = p.prodid;
+
+Full outer join
+
+SELECT e.emp_name, e.dno, d.id , d.dept_name
+FROM employee e FULL OUTER JOIN department d
+ON e.dno = d.id;
+
+Full outer join on order and product table
+
+SELECT o.prodid, p.prodid, p.name, p.unitprice, o.qty, o.price
+FROM product1 p FULL OUTER JOIN order1 o
+ON o.prodid = p.prodid;
+
+
+Add column manager id to employee relation
+
+ALTER TABLE employee ADD manager_id INT;
+
+UPDATE employee SET manager_id = 1 WHERE id = 2;
+
+UPDATE employee SET manager_id = 1 WHERE id = 2;
+
+UPDATE employee SET manager_id = 1 WHERE id = 3;
+
+UPDATE employee SET manager_id = 2 WHERE id = 4;
+
+UPDATE employee SET manager_id = 2 WHERE id = 5;
+
+Joining a table to itself.
+
+SELECT worker.emp_name || ' works for ' || manager.emp_name 
+FROM employee worker, employee manager
+WHERE worker.manager_id = manager.id;
+
+Cross Join
+
+SELECT e.emp_name, d.dept_name
+FROM employee e CROSS JOIN department d;
+
+
+
+
+
+
+
+
