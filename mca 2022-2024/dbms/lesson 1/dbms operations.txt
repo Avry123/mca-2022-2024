@@ -219,6 +219,286 @@ INTO product VALUES(5, 'mixer'   ,   70, 20)
 SELECT * FROM DUAL;
 
 
+SELECT c.custid, p.name, c.address 
+FROM customer2 c , product1 p, order1 o
+WHERE c.custid = p.prodid AND c.custid = o.orderid;
+
+SELECT c.custid, p.name, c.address
+FROM customer2 c INNER JOIN product1 p
+ON c.custid = p.prodid;
+
+INSERT ALL 
+INTO department VALUES(1, 'Department1')
+INTO department VALUES(2, 'Department2')
+INTO department VALUES(3, 'Department3')
+INTO department VALUES(4, 'Department4')
+INTO department VALUES(5, 'Department5')
+SELECT * FROM DUAL;
+
+lEFT OUTER JOIN.
+
+SELECT e.emp_name, e.id, d.id
+FROM employee e LEFT OUTER JOIN department d
+ON e.dno = d.id;
+
+SELECT p.prodid, p.name, p.unitprice, o.qty , o.price
+FROM product1 p LEFT OUTER JOIN order1 o
+ON p.prodid = o.prodid;
+
+INSERT ALL 
+INTO department VALUES(6, 'Department6')
+SELECT * FROM DUAL;
+
+SELECT e.emp_name, e.dno, d.dept_name
+FROM employee e RIGHT OUTER JOIN department d
+ON e.dno = d.id;
+
+SELECT o.prodid, p.prodid, p.name, p.unitprice, o.qty, o.price
+FROM product1 p RIGHT OUTER JOIN order1 o
+ON o.prodid = p.prodid;
+
+Full outer join
+
+SELECT e.emp_name, e.dno, d.id , d.dept_name
+FROM employee e FULL OUTER JOIN department d
+ON e.dno = d.id;
+
+Full outer join on order and product table
+
+SELECT o.prodid, p.prodid, p.name, p.unitprice, o.qty, o.price
+FROM product1 p FULL OUTER JOIN order1 o
+ON o.prodid = p.prodid;
+
+
+Add column manager id to employee relation
+
+ALTER TABLE employee ADD manager_id INT;
+
+UPDATE employee SET manager_id = 1 WHERE id = 2;
+
+UPDATE employee SET manager_id = 1 WHERE id = 2;
+
+UPDATE employee SET manager_id = 1 WHERE id = 3;
+
+UPDATE employee SET manager_id = 2 WHERE id = 4;
+
+UPDATE employee SET manager_id = 2 WHERE id = 5;
+
+Joining a table to itself.
+
+SELECT worker.emp_name || ' works for ' || manager.emp_name 
+FROM employee worker, employee manager
+WHERE worker.manager_id = manager.id;
+
+Cross Join
+
+SELECT e.emp_name, d.dept_name
+FROM employee e CROSS JOIN department d;
+
+
+#Things I should add 6-01-23 (not haddpend on this day)
+
+Case Conversion
+
+LOWER('SQL Course') 
+UPPER('SQL Course')
+INITCAP('SQL Course')
+
+SELECT LOWER('ORACLE')  FROM dual;
+
+SELECT UPPER('oracle')  FROM dual;
+
+SELECT INITCAP('oracle database')  FROM DUAL;
+
+CONCAT('Good', 'String')
+
+SELECT CONCAT('Good', 'String') FROM DUAL;  
+
+SELECT 'Neel' || ' ' || 'Chalke' AS full_name FROM dual;
+ 
+
+
+SUBSTR('String', 1, 3)
+
+SELECT SUBSTR('String', 1, 3) FROM DUAL;  
+
+SELECT substr('database', 3, 3) FROM DUAL;
+
+
+LENGTH('String')
+
+SELECT LENGTH('String') FROM DUAL;  
+
+INSTR('String', 'r')
+
+SELECT INSTR('String', 'r') FROM DUAL;  
+
+SELECT INSTR('Oracle Database', 'base') FROM dual;
+
+
+LPAD(sal,10,'*')
+
+SELECT LPAD(sal,10,'*') FROM DUAL;  
+
+SELECT LPAD('name', 10, '#') FROM DUAL;
+RPAD(fname,10,'*')
+
+SELECT RPAD('sal',10,'*') FROM DUAL;  
+
+SELECT RPAD('name', 10, '#') FROM dual;
+
+SELECT ASCII('a') FROM dual;
+
+ASCII('A')
+
+SELECT ASCII('A') FROM DUAL;  
+
+Translate
+
+SELECT TRANSLATE('abc1ef34', '134', 'ABC') FROM DUAL;
+
+
+TRIM
+
+SELECT TRIM('  Oracle ') FROM DUAL;
+
+SELECT TRIM(leading 'x' from 'xxxxOraclexxx') FROM dual;
+
+SELECT TRIM(TRAILING'x' from 'xxxxOraclexxx') FROM DUAL;
+
+SELECT TRIM(both'x' from 'xxxxOraclexxx') FROM DUAL;
+
+
+LTRIM
+
+SELECT LTRIM('  Oracle') FROM DUAL;
+
+RTRIM
+
+SELECT RTRIM('ORACLE  ') FROM DUAL;
+
+SELECT RTRIM('Oracle', 'O') FROM dual;
+
+SELECT RTRIM('Oracle', 'cle') FROM dual;
+
+SELECT TRIM(' oracle ') FROM DUAL;
+
+Numeric functions
+
+ABS(n) :absolute value of n
+POWER(M,N) m^n
+ROUND(M,N) n rounded ot m places
+SQRT(n) square root of n
+EXP(N) e^n
+EXTRACT() value extracted from a date
+GREATEST() : greatest value in the list
+LEAST() : least value in the list
+MOD(M,N) : remainder of m/n
+TRUNC() : number truncated to a certain number of decimal places.
+FLLOR(M) largest integer <= n
+CEIL(N) smallest integer >- n
+
+SELECT ABS(-5) FROM DUAL;
+
+SELECT POWER(2,4) FROM DUAL;
+
+SELECT ROUND(4.5,5) FROM DUAL;
+
+SELECT  SQRT(20) FROM DUAL;
+
+SELECT EXP(10) FROM DUAL;
+
+SELECT EXTRACT(day FROM date '2016-1-14') FROM DUAL;
+
+SELECT EXTRACT(day FROM date '5-01-23') FROM DUAL;
+
+SELECT GREATEST(1,2,3,4,54,5) FROM DUAL;
+
+SELECT LEAST(1,3,34,4,4,5,4) FROM DUAL;
+
+SELECT MOD(10,2) FROM DUAL;
+
+SELECT TRUNC(10.23245243) FROM DUAL;
+
+
+SELECT FLOOR(12.2334) FROM DUAL;
+
+SELECT CEIL(12) FROM DUAL;
+
+INNER JOIN/ OUTER JOIN.
+
+CREATE TABLE customer2(
+custid INT NOT NULL PRIMARY KEY,
+name varchar2(45),
+address varchar2(50),
+contact number(14)
+);
+
+CREATE TABLE product1(
+prodid INT NOT NULL PRIMARY KEY,
+name VARCHAR2(45),
+unitprice Number(8,2),
+catid INT,
+entrydate Date,
+expdate Date
+);
+
+CREATE TABLE order1(
+orderid INT NOT NULL PRIMARY KEY,
+prodid INT,
+qty INT,
+price INT,
+custid INT,
+CONSTRAINT fk_product1
+FOREIGN KEY(prodid)
+REFERENCES product1(prodid),
+CONSTRAINT fk_customer1
+FOREIGN KEY(custid)
+REFERENCES customer2(custid)
+);
+
+ 
+
+INSERT ALL 
+INTO customer2 VALUES(1, 'person1', 'place1', 2023-1-1)
+INTO customer2 VALUES(2, 'person2', 'place2', 2023-1-2)
+INTO customer2 VALUES(3, 'person3', 'place3', 2023-1-3)
+INTO customer2 VALUES(4, 'person4', 'place4', 2023-1-4)
+INTO customer2 VALUES(5, 'person5', 'place5', 2023-1-5)
+SELECT * FROM dual;
+
+INSERT INTO product1 (prodid, name, unitprice, catid, entrydate, expdate)
+VALUES (1, 'Product 1', 10.99, 1, TO_DATE('01-JAN-2022', 'DD-MON-YYYY'), TO_DATE('01-JUL-2022', 'DD-MON-YYYY'));
+
+INSERT INTO product1 (prodid, name, unitprice, catid, entrydate, expdate)
+VALUES (2, 'Product 2', 12.49, 2, TO_DATE('01-FEB-2022', 'DD-MON-YYYY'), TO_DATE('01-AUG-2022', 'DD-MON-YYYY'));
+
+INSERT INTO product1 (prodid, name, unitprice, catid, entrydate, expdate)
+VALUES (3, 'Product 3', 15.99, 3, TO_DATE('01-MAR-2022', 'DD-MON-YYYY'), TO_DATE('01-SEP-2022', 'DD-MON-YYYY'));
+
+INSERT INTO product1 (prodid, name, unitprice, catid, entrydate, expdate)
+VALUES (4, 'Product 4', 20.99, 1, TO_DATE('01-APR-2022', 'DD-MON-YYYY'), TO_DATE('01-OCT-2022', 'DD-MON-YYYY'));
+
+INSERT INTO product1 (prodid, name, unitprice, catid, entrydate, expdate)
+VALUES (5, 'Product 5', 25.99, 2, TO_DATE('01-MAY-2022', 'DD-MON-YYYY'), TO_DATE('01-NOV-2022', 'DD-MON-YYYY'));
+
+
+INSERT ALL 
+INTO order1 VALUES(1,1,10,300,1)
+INTO order1 VALUES(2,2,12,310,2)
+INTO order1 VALUES(3,3,13,320,3)
+INTO order1 VALUES(4,4,14,330,4)
+INTO order1 VALUES(5,5,15,340,5)
+SELECT * FROM DUAL;
+
+
+
+
+
+
+
+
+
 
 
 
