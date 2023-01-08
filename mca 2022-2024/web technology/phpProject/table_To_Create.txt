@@ -1,0 +1,4 @@
+BLOG (id,username,blog_name)
+Player(player_name,team_name,points,assists,rebounds)
+signin(id,email,password)
+team(teamid,name,city,state)
