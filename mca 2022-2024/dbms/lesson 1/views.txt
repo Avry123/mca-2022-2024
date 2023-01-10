@@ -1,0 +1,199 @@
+#ViEWS
+
+1.SELECT * FROM procduct;
+
+2.How to create a view?
+
+CREATE VIEW cellprodut as
+SELECT * FROM product WHERE cat = 10 ORDER BY pid;
+
+SELECT * FROM cellprodut;
+
+2.Select specific columns and create a view.
+
+CREATE VIEW homeproduct AS
+SELECT pid, pd_name FROM product WHERE cat = 20;
+
+3.
+
+CREATE TABLE employee20(
+eno INT PRIMARY KEY NOT NULL,
+name VARCHAR2(30) NOT NULL,
+salary NUMBER(10,3),
+dno INT,
+CONSTRAINT fk_department_20 FOREIGN KEY(dno)
+REFERENCES department(id)
+);
+
+CREATE VIEW dept_view AS 
+SELECT * FROM department;
+
+SELECT * FROM dept_view;
+
+4.
+
+CREATE VIEW dept_view AS
+SELECT * FROM department;
+
+5.If there is a view of name dept_view we can replace it with new view.
+
+Replace the old view dept_view with new view.
+
+CREATE OR REPLACE VIEW dept_view AS
+SELECT * FROM department WITH READ ONLY CONSTRAINT vw_dept_view_read_only;
+
+6.Whenever you create a view of a table, any time data is inserted into the orignal table the view will also get updated.
+
+CREATE OR REPLACE VIEW dept_view AS
+SELECT id, dept_name FROM department;
+
+INSERT ALL
+INTO department VALUES(7,'Department7')
+INTO department VALUES(8,'Department8')
+SELECT * FROM dual;
+
+7.Update the value for a specific column at a specific row where id is 6 for the view
+
+UPDATE dept_view SET dept_name = 'Department19'
+WHERE id = 6;
+
+
+SELECT * FROM department
+WHERE id >= 6;
+
+8.Drop a view.
+
+DROP VIEW dept_view;
+
+???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+
+Synonyms
+
+1.Create a synonym for department table.
+
+CREATE [PUBLIC] SYNONYM synonym_name FOR object_name;
+
+CREATE SYNONYM ilovedepartment FOR department;
+
+SELECT * FROM ilovedepartment;
+
+2. Drop a synonym.
+
+DROP SYNONYM ilovedepartment;
+
+
+3.Create a sequence
+
+CREATE SEQUENCE order_number_sequence
+INCREMENT BY 1
+START WITH 1
+MAXVALUE 10000000
+MINVALUE 1
+CYCLE 
+CACHE 10;
+
+
+2.Create table sales order
+
+CREATE TABLE sales_order(
+order_number NUMBER(9)
+CONSTRAINT pk_sales_order PRIMARY KEY,
+order_amount NUMBER(9,2)
+);
+
+3.Accessing sequence values.
+
+INSERT INTO sales_order
+VALUES(order_number_sequence.nextval,155.59);
+
+INSERT INTO sales_order
+VALUES(order_number_sequence.nextval,450.00);
+
+INSERT INTO sales_order
+VALUES(order_number_sequence.nextval, 16.95);
+
+3.Creating a new sequence.
+
+CREATE SEQUENCE order_number_sequence2
+INCREMENT BY 100
+START WITH 101
+MAXVALUE 100000000
+MINVALUE 100
+CYCLE
+CACHE 10;
+
+INSERT INTO sales_order
+VALUES(order_number_sequence2.nextval, 775);
+
+INSERT INTO sales_order
+VALUES(order_number_sequence2.nextval, 785)
+
+3.
+ALTER SEQUENCE order_number_sequence MAXVALUE 200000000;
+
+4.
+SELECT * FROM user_sequences;
+
+5.DROP a sequence
+
+DROP SEQUENCE order_number_sequence2;
+
+6.Index
+
+CREATE TABLE person(
+name VARCHAR2(20),
+age NUMBER(2),
+city VARCHAR2(20)
+);
+
+INSERT ALL
+INTO person VALUES('name1', 20, 'city1')
+INTO person VALUES('name2', 30, 'city2')
+INTO person VALUES('name3', 40, 'city3')
+INTO person VALUES('name4', 50, 'city4')
+INTO person VALUES('name5', 60, 'city5')
+SELECT * FROM dual;
+
+CREATE INDEX nameindex ON person(name);
+
+CREATE INDEX ageindex ON person(age);
+
+CREATE INDEX doubleindex ON person(age,city);
+
+
+SELECT *
+FROM person 
+WHERE age > 20 AND age < 60;
+
+7.Union, Intersect and Minus.
+
+CREATE TABLE sailor(
+sid int,
+sname VARCHAR2(20),
+rating NUMBER,
+age NUMBER(2)
+);
+
+INSERT INTO sailor VALUES(&sid,'&sname',&rating,&age)
+
+CREATE TABLE boat(
+bid NUMBER,
+color VARCHAR2(10)
+);
+
+INSERT INTO boat VALUES(&bid,'&color');
+
+CREATE TABLE reserves(
+sid NUMBER,
+bid NUMBER,
+day TIMESTAMP);
+
+INSERT INTO reserves VALUES(&sid,&bid,'&day');
+
+
+
+
+
+
+
+
