@@ -1,0 +1,51 @@
+def additive_cipher(text, key):
+    # Initialize an empty output string
+    output = ""
+
+    # Iterate through each character in the input string
+    for char in text:
+        # Check if the character is an uppercase or lowercase letter
+        if char.isalpha():
+            # Shift the character by the key value and append it to the output string
+            shift = ord(char) + key
+            if char.isupper():
+                output += chr((shift - 65) % 26 + 65)
+            else:
+                output += chr((shift - 97) % 26 + 97)
+        else:
+            # If it's not a letter, just add the character to the output string
+            output += char
+    # Return the output string
+    return output
+
+def multiplicative_cipher(text, key):
+    # Initialize an empty output string
+    output = ""
+
+    # Iterate through each character in the input string
+    for char in text:
+        # Check if the character is an uppercase or lowercase letter
+        if char.isalpha():
+            # Shift the character by the key value and append it to the output string
+            shift = ord(char) * key
+            if char.isupper():
+                output += chr((shift - 65) % 26 + 65)
+            else:
+                output += chr((shift) % 26 + 97)
+        else:
+            # If it's not a letter, just add the character to the output string
+            output += char
+    # Return the output string
+    return output
+
+print("Welcome to the encryption program")
+
+want_to_run = input("Do you want to run the program? (yes/no) ")
+
+while want_to_run.lower() == "y":
+    password = input("Enter the text you want to encrypt: ")
+    # Key should be integer value
+    key = int(input("Enter the key : "))
+    print("Encrypted Text : " , additive_cipher(password, key))
+    print("Encrypted Text : " , multiplicative_cipher(password,key))
+    want_to_run = input("Do you want to run the program? (yes/no) ")
