@@ -1,0 +1,202 @@
+CREATE TABLE emp(
+eno INT,
+fname VARCHAR2(20),
+lname VARCHAR2(20),
+DOB DATE,
+gender VARCHAR2(10),
+hdate DATE,
+salary NUMBER(10,2)
+);
+
+insert record using pl/sql
+
+
+DECLARE
+	empno emp.eno%type;
+	fname emp.fname%type;
+	lname emp.lname%type;
+	date_of_birth emp.dob%type;
+	gender emp.gender%type;
+	hdate emp.hdate%type;
+	salary emp.salary%type;
+BEGIN
+	empno := &eno;
+	fname := '&fname';
+	lname := '&lname';
+	date_of_birth := '&date_of_birth';
+	hdate := '&hdate';
+	salary := &salary;
+INSERT INTO emp VALUES(empno,fname,lname,date_of_birth,gender,hdate,salary);
+dbms_output.put_line('Record inserted');
+END;
+
+Retrieve Records
+
+
+
+DECLARE
+eno emp.eno%type;
+fname emp.fname%type;
+lname emp.lname%type;
+salary emp.salary%type;
+BEGIN
+eno := &eno;
+SELECT eno,fname, lname,salary INTO eno, fname, lname,salary FROM emp WHERE eno = eno;
+DBMS_OUTPUT.PUT_LINE('Employee No: '|| eno);
+DBMS_OUTPUT.PUT_LINE('Employee Name: ' || fname || ' '  ||lname);
+DBMS_OUTPUT.PUT_LINE('Salary: ' || salary);
+END;
+
+SELECT eno,fname, lname, dob, gender, salary FROM emp;
+
+How to retrieve rows of date which satisfies a condition.
+
+DECLARE
+eno emp.eno%type;
+salary1 emp.salary%type;
+BEGIN
+eno := &eno;
+SELECT salary into salary1 FROM emp WHERE eno = eno;
+IF salary1 >= 1500 THEN
+UPDATE emp SET salary = salary + salary * 0.05 WHERE eno = eno;
+DBMS_OUTPUT.PUT_LINE('Record Updated');
+END IF;
+END;
+/
+
+If salary < 25000, delete the record
+
+DECLARE
+eno1 emp.eno%type;
+salary1 emp.salary%type;
+BEGIN
+eno1 := &eno1;
+SELECT salary INTO salary1 FROM emp WHERE eno = eno1;
+IF salary1 > 4500 THEN
+DELETE FROM emp WHERE eno = eno1;
+DBMS_OUTPUT.PUT_LINE('Record Deleted');
+END IF;
+END;
+/
+
+Implicit Cursor.
+
+Implicit cursor attributes to check the status of DML operations 
+1.%FOUND
+
+2.%NOTFOUND
+
+3.%ROWCOUNT
+
+4.%ISOPEN
+
+5.Increase the salary of employees by Rs.1000.
+
+DECLARE
+num_rows NUMBER(5);
+BEGIN
+UPDATE emp SET salary = salary + 1000;
+IF SQL%NOTFOUND THEN
+DBMS_OUTPUT.PUT_LINE('No records updated');
+ELSIF SQL%FOUND THEN
+num_rows := SQL%ROWCOUNT;
+DBMS_OUTPUT.PUT_LINE(num_rows || 'records updated');
+END IF;
+END;
+
+To display the last name from employee table whose first name is Rahul
+
+DECLARE
+emp1 emp%rowtype;
+BEGIN
+SELECT * INTO emp1 FROM emp WHERE fname = 'Neel';
+DBMS_OUTPUT.PUT_LINE(emp1.lname);
+END;
+/
+
+To display the details of an employee with an number 101 using %rowtype
+
+DECLARE
+emp1 emp%rowtype;
+BEGIN
+SELECT * INTO emp1 FROM emp WHERE eno = 1;
+DBMS_OUTPUT.PUT_LINE('Name'|| emp1.fname  || ' '  ||emp1.lname);
+END;
+/
+
+
+DECLARE
+emp1 emp%rowtype;
+BEGIN
+SELECT * INTO emp1 FROM emp WHERE eno = 1;
+DBMS_OUTPUT.PUT_LINE(emp1.lname);
+END;
+/
+
+Display empno, fname and salary using cursor
+
+DECLARE
+emprec emp%rowtype;
+cursor empcur IS SELECT * FROM emp WHERE salary > 20000;
+BEGIN
+open empcur;
+FETCH empcur INTO emprec;
+DBMS_OUTPUT.PUT_LINE('emprec eno' || ' ' || emprec.fname || emprec.salary );
+CLOSE empcur;
+END;
+
+Using for loop
+
+DECLARE
+emprec emp%rowtype;
+cursor empcur IS SELECT * FROM emp WHERE salary > 20000;
+BEGIN
+FOR emprec in empcur
+LOOP
+DBMS_OUTPUT.PUT_LINE(emprec.eno || emprec.fname || emprec.lname);
+END LOOP;
+END;
+/
+
+Cursor with parameters
+
+DECLARE
+emprec emp%rowtype;
+id NUMBER;
+cursor empcur(id NUMBER) IS SELECT * FROM emp WHERE eno = id;
+BEGIN
+FOR emprec in empcur(1)
+LOOP
+DBMS_OUTPUT.PUT_LINE(emprec.eno || emprec.fname || emprec.lname);
+END LOOP;
+END;
+/
+
+Write a PLSQL block to print the product details using cursor.
+
+DECLARE 
+prorec product%rowtype;
+cursor productcur IS SELECT * FROM product;
+BEGIN
+FOR productrec in productcur
+LOOP
+DBMS_OUTPUT.PUT_LINE(productrec.pd_name || ' ' || productrec.price);
+END LOOP;
+END;
+/
+
+Write a PLSQL block to print the order details for a particular order.
+
+DECLARE
+orderrec order1%rowtype;
+id INT;
+cursor ordercur(id INT) IS SELECT * FROM order1 WHERE orderid = id;
+BEGIN
+FOR orderrec in ordercur(1)
+LOOP
+DBMS_OUTPUT.PUT_LINE(orderrec.orderid || ' ' || orderrec.prodid || ' ' || orderrec.price);
+END LOOP;
+END;
+/
+
+
