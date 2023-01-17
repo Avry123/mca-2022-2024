@@ -177,6 +177,7 @@ RETURN pd_value10;
 END;
 /
 
+
 DECLARE
 pn product.pd_name%type;
 pr product.price%type;
@@ -186,6 +187,102 @@ pr := fetchProduct(pn);
 DBMS_OUTPUT.PUT_LINE('Unit Price'|| pr);
 END;
 /
+
+UPDATE product SET supplier_name = 'supplier1' WHERE pid = 1;
+UPDATE product SET supplier_name = 'supplier2' WHERE pid = 2;
+UPDATE product SET supplier_name = 'supplier3' WHERE pid = 3;
+UPDATE product SET supplier_name = 'supplier4' WHERE pid = 4;
+UPDATE product SET supplier_name = 'supplier5' WHERE pid = 5;
+
+
+CREATE OR REPLACE FUNCTION fetch_unit_price(pd_name10 in VARCHAR2, supplier_name10 in VARCHAR2) RETURN NUMBER IS pd_value10 NUMBER(8,3);
+BEGIN
+SELECT price INTO pd_value10 FROM product WHERE pd_name = pd_name10
+
+
+Procedure to display hello world message
+
+CREATE OR REPLACE PROCEDURE greetings
+AS
+BEGIN
+DBMS_OUTPUT.PUT_LINE('Hello World');
+END;
+
+EXECUTE greetings 
+
+OR BEGIN greetings;
+END;
+
+Procedure to find the minimum number(using in and out parameter)
+
+CREATE OR REPLACE PROCEDURE findMin(x IN NUMBER, y IN NUMBER, z OUT NUMBER)
+IS
+BEGIN
+IF x < y THEN
+z := x;
+ELSE
+z := y;
+END IF;
+END;
+/
+
+DECLARE
+a NUMBER;
+b NUMBER;
+c NUMBER;
+BEGIN
+a := &a;
+b := &b;
+findMin(a,b,c);
+DBMS_OUTPUT.PUT_LINE('Minimum: ' || c);
+END;
+/
+
+Procedure to display the square of a number.
+
+CREATE OR REPLACE PROCEDURE squareNum(x IN OUT number)
+IS
+BEGIN
+x := x * x;
+END;
+/
+
+
+
+DECLARE
+a NUMBER;
+BEGIN
+a := &a;
+squareNum(a);
+DBMS_OUTPUT.PUT_LINE('The square is ' || a);
+END;
+/
+
+CREATE OR REPLACE PROCEDURE displayName(x IN NUMBER, y OUT VARCHAR2)
+IS 
+BEGIN
+SELECT emp_name INTO y FROM employee WHERE id = x;
+END;
+/
+
+
+DECLARE
+a NUMBER;
+b VARCHAR2(25);
+BEGIN
+a := &a;
+displayName(a,b);
+DBMS_OUTPUT.PUT_LINE('The name is'|| ' ' || b);
+END;
+/
+
+CREATE OR REPLACE PROCEDURE employeename(eno1 IN NUMBER, ename1 OUT VARCHAR2)
+IS
+BEGIN
+SELECT fname INTO ename1 FROM emp WHERE eno = eno1)
+END;
+/
+
 
 
 
