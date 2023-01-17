@@ -1,0 +1,155 @@
+Create a table player.
+
+#Creating a connection
+import sqlite3
+
+try :
+    conn = sqlite3.connect('nba')
+    if (conn) :
+        cursor.execute('''CREATE TABLE customers (id INTEGER PRIMARY KEY, name TEXT, age INTEGER)''')
+        if (cursor.execute(sql)) :
+            print('Table Created')
+        else :
+            print('Error while creating the table')
+    else :
+        print('Connection unsuccessful')
+except Exception as e:
+    print(e)
+finally :
+    cursor.close()
+    conn.close()
+
+
+#Creating a connection
+import sqlite3
+
+try :
+    conn = sqlite3.connect('nba')
+    cursor = conn.cursor()
+    sql = 'INSERT INTO players(id, player_name, team_name) VALUES(?,?,?)'
+    bind = (1, 'Luka Doncic', 'Dallas Mavericks')
+    if cursor.execute(sql,bind).rowcount>0:
+        conn.commit()
+        print('Data inserted')
+    else :
+        print('Having trouble inserting data')
+except Exception as e :
+    print(e)
+finally :
+    conn.close()
+
+#Inserting many rows of data.
+
+import sqlite3
+
+try :
+    conn = sqlite3.connect('nba')
+    cursor = conn.cursor()
+    sql = 'INSERT INTO players(id, player_name, team_name) VALUES(?,?,?)'
+    bind = [(2, 'Kobe Bryant', 'Los Angeles Lakers'), 
+            (3, 'Michael Jordan', 'Chicago Bulls'), 
+            (4, 'Magic Johnson', 'Los Angeles Lakers'), 
+            (5, 'Larry Bird', 'Boston Celtics'), 
+            (6, "Shaquille O'Neal", 'Los Angeles Lakers'), 
+            (7, 'Tim Duncan', 'San Antonio Spurs'), 
+            (8, 'Stephen Curry', 'Golden State Warriors'), 
+            (9, 'Kevin Durant', 'Brooklyn Nets'), 
+            (10, 'James Harden', 'Houston Rockets')
+            ]
+    if cursor.executemany(sql,bind).rowcount>0:
+        conn.commit()
+        print('Data inserted')
+    else :
+        print('Having trouble inserting data')
+except Exception as e :
+    print(e)
+finally :
+    conn.close()
+
+
+
+
+
+
+
+Update query.
+
+sql = "UPDATE players SET team_name = 'Washington Wizards' WHERE id = 3 "
+
+#update query page 1
+
+import sqlite3
+
+try :
+    conn = sqlite3.connect('nba')
+    if (conn) :
+        cursor = conn.cursor()
+        sql = "UPDATE players SET team_name = 'Washington Wizards' WHERE id = 3"
+        cursor.execute(sql)
+        print('Data updated')
+        conn.commit()
+except Exception as e:
+    print(e)
+finally :
+    cursor.close()
+    conn.close()
+
+
+
+
+
+
+
+
+
+import sqlite3
+
+try :
+    conn = sqlite3.connect('nba')
+    if (conn) :
+        cursor = conn.cursor()
+        sql = 'SELECT * FROM players'
+        cursor.execute(sql)
+        result = cursor.fetchall()
+        if (len(result) == 0) :
+            print('There is no record')
+        else :
+            for i in result:
+                print(i)
+except Exception as e:
+    print(e)
+finally :
+    cursor.close()
+    conn.close()
+
+(2, 'Kobe Bryant', 'Los Angeles Lakers'), 
+(3, 'Michael Jordan', 'Chicago Bulls'), 
+(4, 'Magic Johnson', 'Los Angeles Lakers'), 
+(5, 'Larry Bird', 'Boston Celtics'), 
+(6, "Shaquille O'Neal", 'Los Angeles Lakers'), 
+(7, 'Tim Duncan', 'San Antonio Spurs'), 
+(8, 'Stephen Curry', 'Golden State Warriors'), 
+(9, 'Kevin Durant', 'Brooklyn Nets'), 
+(10, 'James Harden', 'Houston Rockets')
+
+VALUES (1, 'Los Angeles Lakers', 1), (2, 'Chicago Bulls', 2), (3, 'New York Knicks', 3), (4, 'Los Angeles Clippers', 1), (5, 'Boston Celtics', 4), (6, 'Miami Heat', 4), (7, 'San Antonio Spurs', 5), (8, 'Golden State Warriors', 3), (9, 'Brooklyn Nets', 2), 
+(10, 'Houston Rockets', 5);
+
+
+DELETE FROM players WHERE id = 10;
+
+import sqlite3
+
+try :
+    conn = sqlite3.connect('nba')
+    if (conn) :
+        cursor = conn.cursor()
+        sql = "DELETE FROM players WHERE id = 10"
+        cursor.execute(sql)
+        print('Data deleted')
+        conn.commit()
+except Exception as e:
+    print(e)
+finally :
+    cursor.close()
+    conn.close()
