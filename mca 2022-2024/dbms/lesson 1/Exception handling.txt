@@ -1,0 +1,191 @@
+There are 3 ty
+
+Named System Exception
+
+Unnamed System Exception
+
+User defined Exception.
+
+cursor_already_opened (When you open a cursor which is already opened.)
+
+invalid_cursor (When you perform an invalid operation on a cursor like closing a cursor, fetch data from a cursor that is not opened.)
+
+no_data_found (When a )
+
+DECLARE 
+eno1 emp.eno%type;
+fname1 emp.fname%type;
+lname1 emp.lname%type;
+bsal emp.salary%type;
+BEGIN
+eno1 := '&eno1';
+SELECT eno, fname, lname, salary INTO eno1, fname1, lname1, bsal FROM emp WHERE eno = eno1;
+IF SQL%FOUND THEN
+DBMS_OUTPUT.PUT_LINE('Employee_no: ' || eno1);
+DBMS_OUTPUT.PUT_LINE('Employee Name' || fname1 || ' ' || lname1);
+DBMS_OUTPUT.PUT_LINE('Employee_salary' || bsal);
+END IF;
+EXCEPTION
+WHEN no_data_found THEN
+DBMS_OUTPUT.PUT_LINE('Record not found');
+END;
+/
+
+Unnamed system exception
+
+Declare
+exception_name EXCEPTION;
+PRAGMA
+EXCEPTION_INIT(exception_name, Err_code);
+BEGIN
+Excecution section
+EXCEPTION WHEN excetpion_name THEN handle  the exception
+END;
+/
+
+Prodcut and order realtion
+
+DECLARE
+child_rec_exception EXCEPTION;
+PRAGMA EXCEPTION_INIT (child_rec_exception, -2292);
+BEGIN
+DELETE FROM product WHERE pid = 1;
+EXCEPTION
+WHEN child_rec_exception THEN
+DBMS_OUTPUT.PUT_LINE('Child records are present for this prodid');
+END;
+/
+
+DECLARE
+more_quantity EXCEPTION;
+msg VARCHAR2(50);
+limit constant order1.qty%type := 10;
+q order1.qty%type;
+orec order1%rowtype;
+cursor ord_cur IS SELECT * FROM order1;
+BEGIN
+FOR orec in ord_cur
+LOOP
+q := orec.qty;
+if q > limit THEN
+msg := 'no of units of product' || orec.prodid || 'more than limit';
+raise more_quantity;
+END IF;
+END LOOP;
+EXCEPTION
+WHEN more_quantity THEN
+DBMS_OUTPUT.PUT_LINE(msg);
+END;
+/
+
+Records.
+
+Records are a composite datatypes, which measn it is a combination fo different scalar datatypes like char,varchar,number, etc.
+
+Each scalar data types in the reocrds holds a value
+A record can be visualized as a row of data.
+
+
+Type record_type_name is record (first_col_name column_datatype, second_col_name column_datatype,...);
+
+DECLARE
+Type book is record
+(title VARCHAR2(10),
+author VARCHAR2(10),
+subject VARCHAR2(10),
+bookid number);
+Book1 book;
+Book2 book;
+BEGIN
+Book1.title := 'C++';
+Book1.author := 'xyz';
+Book1.subject := 'Program';
+Book1.bookid := 101;
+Book2.title := 'Gintama';
+Book2.author := 'Saru';
+Book2.subject := 'Comedy';
+Book2.bookid := 102;
+DBMS_OUTPUT.PUT_LINE('Book1 details');
+DBMS_OUTPUT.PUT_LINE('******************');
+DBMS_OUTPUT.PUT_LINE('Book1 Title' || Book1.title);
+DBMS_OUTPUT.PUT_LINE('Book1 Author' || Book1.author);
+DBMS_OUTPUT.PUT_LINE('Book1 Subject' || Book1.subject);
+DBMS_OUTPUT.PUT_LINE('Book2 details');
+DBMS_OUTPUT.PUT_LINE('******************');
+DBMS_OUTPUT.PUT_LINE('Book2 Title' || Book2.title);
+DBMS_OUTPUT.PUT_LINE('Book2 Author' || Book2.author);
+DBMS_OUTPUT.PUT_LINE('Book2 Subject' || Book2.subject);
+DBMS_OUTPUT.PUT_LINE('Book1 id' || Book1.bookid || ' ' || 'Book2 id' || ' ' || Book2.bookid);
+END;
+/
+
+difference between procedure and function.
+Function returns a value, procedure do not return a value.
+
+General Syntax to create a function is 
+
+CREATE [OR REPLACE] FUNCTION function_name [parameters]
+RETURN return_datatype;
+IS
+Declaration_section
+BEGIN
+Execution_section
+Return return_variable;
+EXCEPTION
+exception section
+RETURN return_variable;
+END;
+/
+
+Function to return the square of a number.
+
+CREATE OR REPLACE FUNCTION sqr(num in number) return number is s number;
+BEGIN
+s := num * num;
+return s;
+END;
+/
+
+Create a functon to accept  empno as a parameter and return empname
+
+CREATE OR REPLACE function empfun(eno1 in NUMBER) RETURN VARCHAR IS empname VARCHAR(30)
+BEGIN
+SELECT fname INTO empname FROM emp WHERE eno = eno1;
+RETURN empname	
+END;
+/
+
+CREATE OR REPLACE FUNCTION prodcutfun(pname in varchar2, sname in varchar2) return number is up number(7,2);
+
+
+DECLARE 
+empno NUMBER;
+name VARCHAR2(15);
+BEGIN 
+empno := &empno;
+name := empfun(empno);
+DBMS_OUTPUT.PUT_LINE('Name' || name);
+END;
+/
+
+
+
+CREATE OR REPLACE function fetchProduct(pd_name10 in VARCHAR2) RETURN number IS pd_value10 NUMBER(8,3); 
+BEGIN
+SELECT price INTO pd_value10 FROM product WHERE pd_name = pd_name10;
+RETURN pd_value10;
+END;
+/
+
+DECLARE
+pn product.pd_name%type;
+pr product.price%type;
+BEGIN
+pn := '&pn';
+pr := fetchProduct(pn);
+DBMS_OUTPUT.PUT_LINE('Unit Price'|| pr);
+END;
+/
+
+
+
