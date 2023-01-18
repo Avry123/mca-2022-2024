@@ -226,6 +226,11 @@ END IF;
 END;
 /
 
+
+
+
+
+
 DECLARE
 a NUMBER;
 b NUMBER;
@@ -246,6 +251,7 @@ BEGIN
 x := x * x;
 END;
 /
+
 
 
 
@@ -276,6 +282,38 @@ DBMS_OUTPUT.PUT_LINE('The name is'|| ' ' || b);
 END;
 /
 
+DECLARE
+id1 NUMBER;
+r1 emp%rowtype;
+cursor c1 is SELECT * FROM emp;
+BEGIN
+id1 := &id1;
+FOR r1 in c1
+LOOP
+IF (r1.eno = id1) THEN
+updateSalary(id1,r1.salary);
+DBMS_OUTPUT.PUT_LINE('Data Updated');
+END IF;
+ELSE 
+DBMS_OUTPUT.PUT_LINE('This record does not exists');
+END LOOP;
+DBMS_OUTPUT.PUT_LINE('Data Updated');
+END;
+/
+
+DECLARE
+r1 emp%rowtype;
+cursor c1 is SELECT * FROM emp;
+BEGIN
+FOR r1 in c1
+LOOP
+updateSalary(r1.eno,r1.salary);
+DBMS_OUTPUT.PUT_LINE('Table employee Update');
+END LOOP;
+END;
+/
+
+
 CREATE OR REPLACE PROCEDURE employeename(eno1 IN NUMBER, ename1 OUT VARCHAR2)
 IS
 BEGIN
@@ -284,5 +322,44 @@ END;
 /
 
 
+Procedure to display employee details.
+
+DECLARE
+r1 emp%rowtype;
+CURSOR c1 is SELECT * FROM emp;
+PROCEDURE empdet AS
+BEGIN
+FOR r1 in c1 
+LOOP
+DBMS_OUTPUT.PUT_LINE(r1.eno || ' ' || r1.fname || ' ' || r1.lname);
+END LOOP;
+END;
+BEGIN
+empdet;
+END;
+/
+
+CREATE OR REPLACE PROCEDURE updateSalary(eno1 IN NUMBER, salary1 IN NUMBER)
+IS 
+BEGIN
+IF salary1 > 15000 THEN
+UPDATE emp SET salary = salary + salary * 5/100 WHERE eno = eno1;
+ELSE
+UPDATE emp SET salary = salary + salary * 2/100 WHERE eno = eno1;
+END IF;
+END;
+/
+
+DECLARE
+r1 emp%rowtype;
+cursor c1 is SELECT * FROM emp;
+BEGIN
+FOR r1 in c1
+LOOP
+updateSalary(r1.eno,r1.salary);
+DBMS_OUTPUT.PUT_LINE('Table employee Update');
+END LOOP;
+END;
+/
 
 

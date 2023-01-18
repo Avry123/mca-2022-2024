@@ -1,0 +1,104 @@
+A trigger is a pl/sql block structure which is fired when a DML statements like Insert,Delete,Update is executed on a database table.
+It is triggered automatically when an assosciated DML statement is executed.
+
+Syntax for Creating  a trigger
+CREATE [OR REPLACE] TRIGGER trigger_name
+{BEFORE | AFTER | INSTEAD OF}
+{INSERT [OR] | UPDATE [OR] | DELETE}
+[OF col_name] ON table_name
+[REFERENCING OLD AS o NEW AS n]
+[FOR EACH ROW]
+WHEN(condition)
+BEGIN
+--sql statement
+END;
+/
+
+
+CREATE TABLE product_price_history(
+product_id NUMBER(5),
+product_name VARCHAR2(32),
+supplier_name VARCHAR2(32),
+unit_price NUMBER(7,2)
+);
+
+CREATE TABLE product2(
+product_id NUMBER(5),
+product_name VARCHAR2(32),
+supplier_name VARCHAR2(32),
+unit_price NUMBER(7,2)
+);
+
+CREATE TABLE product_log(
+trigger_type VARCHAR2(40)
+);
+
+INSERT INTO product_price_history VALUES(1,'Ipad', 'supplier1', 10);
+
+INSERT INTO product2 VALUES(2,'product2', 'supplier2', '60');
+INSERT INTO product2 VALUES(3,'product3', 'supplier3', '50');
+INSERT INTO product2 VALUES(4,'product4', 'supplier4', '40');
+
+DELETE FROM product_price_history WHERE product_id = 1;
+
+UPDATE product2 SET unit_price = unit_price * 0.5;
+
+################################################################################################################################################################
+
+Creating a trigger
+
+CREATE OR REPLACE TRIGGER price_history_trigger
+BEFORE UPDATE OF unit_price ON product2
+FOR EACH ROW
+BEGIN
+INSERT INTO product_price_history VALUES(:old.product_id, :old.product_name, :old.supplier_name, :old.unit_price);
+END;
+/
+
+UPDATE PRODUCT2 SET unit_price = 800 WHERE product_id = 1;
+
+
+SELECT * FROM product_price_history;
+
+################################################################################################################################################################
+
+CREATE OR REPLACE TRIGGER price_history_trigger10
+BEFORE UPDATE OF unit_price ON product2
+FOR EACH ROW
+BEGIN
+INSERT INTO product_log VALUES('Row level trigger');
+END;
+/
+
+###################################################################################################################################################################
+
+CREATE OR REPLACE TRIGGER price_history_trigger
+BEFORE UPDATE OF unit_price ON product2
+FOR EACH ROW
+BEGIN
+INSERT INTO product_price_history VALUES(:old.product_id, :old.product_name, :old.supplier_name, :old.unit_price);
+END;
+/
+
+
+CREATE OR REPLACE TRIGGER employee_history_trigger
+BEFORE UPDATE OF salary ON emp
+FOR EACH ROW
+DECLARE
+diff number(10,2);
+BEGIN
+diff := :old.salary - :new.salary;
+INSERT INTO emp_history VALUES(:old.eno, :old.salary, :new.salary, diff);
+END;
+/
+
+CREATE TABLE emp_history(
+id INT,
+old_salary NUMBER(7,2),
+new_salary NUMBER(7,2),
+difference NUMBER(7,2)
+);
+
+UPDATE emp SET salary = 1000 WHERE eno = 3;
+
+ALTER TABLE emp_history MODIFY (new_salary NUMBER(12,2), difference NUMBER(12,2));
