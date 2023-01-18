@@ -1,0 +1,81 @@
+pip install mysql-connector-python
+
+what is self?
+types of parameters: instance variable, class variables
+
+what do you mean by namespace?
+
+What are the different types of methods?
+Instance method.
+Accessor method:
+def add(self) :
+	self.num1 + self.num2
+Mutator Method.
+def assign(self,num1,num2) :
+          self.num1 = num1
+          self.num2 = num2
+
+concrete method.
+
+Class method.
+By default first parameter of the class is cls.
+
+Static Method.
+It is bound to the class and not to the object of the class.
+
+Page ranking algorithm.
+Based on the page hit counter the page ranking algorithm.
+
+There are three types of decorators class method, static method and abstract method.
+
+Super method. 
+
+Different types of inheritance.
+
+1.Single Inheritance.
+2.Multilevel Inheritance.
+3.Mutliple Inheritance.
+4.Hierarchical Inheritance
+5.Hybrid Inheritance
+
+public, private and protected class and variables.
+
+Method Resolution Order
+
+Example:
+1.duck typing philosopy,
+2.method overloading
+3.method overriding
+4.operator overloading.
+
+what happens in compile time and what happens in runtime?
+
+by default the data type is tuple.
+
+primitive data type.
+
+floor division.
+
+5 / 2 = 2.5
+
+5 // 2 = 2
+
+magic operator for arithematic operator
+
+magic operator for comparison operator
+
+magic operator for assignment operator
+
+
+Method overriding.
+
+Method overloading.
+
+abstract class, the system does not know how much memory will be required for the class, so you cannot create a object.
+
+Interface in python.
+If a abstract  only contains abstract methods.
+
+Abstract class can have abstract method and concrete methods.
+
+java does not support multilevel inheritance.
