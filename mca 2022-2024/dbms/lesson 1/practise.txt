@@ -1,0 +1,181 @@
+Practise.
+
+Practise joins.
+
+CREATE TABLE player(
+id INT NOT NULL PRIMARY KEY,
+player_name VARCHAR2(30),
+team_id INT
+);
+
+CREATE TABLE team(
+id INT NOT NULL PRIMARY KEY,
+team_name VARCHAR2(30)
+);
+
+Inner Join
+SELECT p.player_name, t.team_name
+FROM player p INNER JOIN team t
+ON p.id = t.id;
+
+Left Join
+
+SELECT p.id, p.player_name, t.team_name
+FROM player p LEFT JOIN team t
+ON p.id = t.id;
+
+RIGHT JOIN
+
+SELECT p.id, p.player_name, t.team_name
+FROM player p
+LEFT OUTER JOIN team t
+ON p.id = t.id;
+
+select * from player;
+
+ALTER TABLE player ADD CONSTRAINT pk_team_fk FOREIGN KEY(team_id) REFERENCES team(id);
+
+DELETE FROM team WHERE id = 11;
+
+DELETE FROM team WHERE id = 12;
+
+DELETE FROM team WHERE id = 13;
+
+DELETE FROM team WHERE id = 14;
+
+DELETE FROM team WHERE id = 15;
+
+DELETE FROM team WHERE id = 16;
+
+
+INSERT ALL 
+INTO player VALUES(1,'player1',1)
+INTO player VALUES(2,'player2',3)
+INTO player VALUES(3,'player3',5)
+INTO player VALUES(4,'player4',5)
+INTO player VALUES(5,'player5',5)
+INTO player VALUES(6,'player6',6)
+INTO player VALUES(7,'player7',6)
+INTO player VALUES(8,'player8',10)
+INTO player VALUES(9,'player9',10)
+INTO player VALUES(10,'player10',10)
+SELECT * FROM dual;
+
+INSERT ALL 
+INTO player(id,player_name) VALUES(11,'player11')
+INTO player(id,player_name) VALUES(12,'player12')
+INTO player(id,player_name) VALUES(13,'player13')
+INTO player(id,player_name) VALUES(14,'player14')
+INTO player(id,player_name) VALUES(15,'player15')
+INTO player(id,player_name) VALUES(16,'player16')
+SELECT * FROM dual;
+
+
+ALTER TABLE player ENABLE CONSTRAINT pk_team_fk;
+
+
+INSERT ALL 
+INTO team VALUES(1,'team1')
+INTO team VALUES(2,'team2')
+INTO team VALUES(3,'team3')
+INTO team VALUES(4,'team4')
+INTO team VALUES(5,'team5')
+INTO team VALUES(6,'team6')
+INTO team VALUES(7,'team7')
+INTO team VALUES(8,'team8')
+INTO team VALUES(9,'team9')
+INTO team VALUES(10,'team10')
+SELECT * FROM dual;
+
+INSERT ALL 
+INTO team VALUES(11,'team11')
+INTO team VALUES(12,'team12')
+INTO team VALUES(13,'team13')
+INTO team VALUES(14,'team14')
+INTO team VALUES(15,'team15')
+INTO team VALUES(16,'team16')
+SELECT * FROM dual;
+
+
+DECLARE
+name VARCHAR2(30);
+BEGIN
+name := '&name';
+DBMS_OUTPUT.PUT_LINE('The name is '|| name);
+END;
+/
+
+write a pl/sql statement to find the area and circumference of the circle.
+
+DECLARE
+radius NUMBER(10,6);
+area NUMBER(22,6);
+circ NUMBER(20,6);
+BEGIN
+radius := &radius;
+area := 22/7 * radius;
+circ := 2 * 22/7 * radius;
+DBMS_OUTPUT.PUT_LINE('The radius is ' || area );
+DBMS_OUTPUT.PUT_LINE('The circumference is ' || circ);
+END;
+/
+
+Block to check if the number is even or odd.
+
+DECLARE
+num NUMBER(8,5);
+BEGIN
+num := &num;
+IF mod(num,2) = 0 THEN
+DBMS_OUTPUT.PUT_LINE('The following is a even number');
+ELSE 
+DBMS_OUTPUT.PUT_LINE('The followins is a odd number');
+END IF;
+END;
+/
+
+To check the largest of three numbers.
+
+DECLARE
+a INT;
+b INT;
+c INT;
+BEGIN
+a := &a;
+b := &b;
+c := &c;
+IF a > b AND a > C THEN
+DBMS_OUTPUT.PUT_LINE('A has the largest value');
+ELSIF b > a AND b > c THEN
+DBMS_OUTPUT.PUT_LINE('b has the largest value');
+ELSIF c > a AND c > b THEN
+DBMS_OUTPUT.PUT_LINE('c has the largest value');
+END IF;
+END;
+/
+
+Write a plsql block to find the marks of three subject and find the average marks and do the grading.
+
+DECLARE
+sub1 INT;
+sub2 INT;
+sub3 INT;
+avg NUMBER(7,4);
+BEGIN
+sub1 := &sub1;
+sub2 := &sub2;
+sub3 := &sub3;
+avg := AVG(sub1,sub2,sub3);
+IF avg > 80 :
+DBMS_OUTPUT.PUT_LINE('You have secured a A grade');
+ELSIF avg > 70 THEN
+DBMS_OUTPUT.PUT_LINE('You have secured a B grade');
+ELSIF avg > 50 THEN
+DBMS_OUTPUT.PUT_LINE('You have secured a C grade');
+END IF;
+END;
+/
+
+
+
+
