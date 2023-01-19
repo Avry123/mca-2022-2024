@@ -1,5 +1,7 @@
 #question 6
-
+#Write a programme that convert a list of multiple integers into single strings  
+#sample list = [11,23,33]
+#listString = 113355
 listq = []
 listString = []
 i = 0

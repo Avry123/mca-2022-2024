@@ -270,6 +270,15 @@ print(foo(c, 3)) #18601867
 print(foo(c, d)) #none
 print(foo(a, b)) #5, 7, 9
 
+#Question to ask.
+
+1. Explain this.
+print(any((None, None, 0)))  # Output: False
+print(any((None, None, 1)))  # Output: True
+
+print(any("abcdefg"))  # Output: False
+print(any("1234567890"))  # Output: True
+
 
 
 

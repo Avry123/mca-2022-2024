@@ -1,5 +1,5 @@
-# Online Python compiler (interpreter) to run Python online.
-# Write Python 3 code in this online editor and run it.
+#Write a python program to to create a dictionary with key a first character.
+#The program takes a string and creates a dictionary with key at first character and values as words stating with that character
 
 runORStop = input('Start Y/Stop N')
 

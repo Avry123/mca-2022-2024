@@ -1,5 +1,4 @@
-# Online Python compiler (interpreter) to run Python online.
-# Write Python 3 code in this online editor and run it.
+#Write a program to transpose a matrix.
 
 # a = [['n' , 'e', 'e'],
 #      ['r', 'e', 'e'],

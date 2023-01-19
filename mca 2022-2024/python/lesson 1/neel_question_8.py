@@ -1,3 +1,5 @@
+#Write a python program to perform matrix multiplication.
+
 # a = [[1,2 ,3],[3,4 ,5], [5,6,7]]
 
 # b = [[10,20 , 30],[30,40, 50], [50,60,70]]

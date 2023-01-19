@@ -5,14 +5,6 @@
 #If name contains numbers or special symbols raise exception. 'Name not valid exception'
 #Define the two exception class.
 
-#question 18
-
-#question 18
-#Create a class student with attribute roll no, name, age and course.
-#Initialize values through parameterical constructor.
-#If age of student is not in between 15 and 21, then generate user-defined exception 'Age not within exception'
-#If name contains numbers or special symbols raise exception. 'Name not valid exception'
-#Define the two exception class.
 
 import string
 

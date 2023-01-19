@@ -1,0 +1,5 @@
+1   Green   1000
+2   Tanvi   2000
+3   Mangesh 3000
+4   Reet    4000
+5   Neel    5000

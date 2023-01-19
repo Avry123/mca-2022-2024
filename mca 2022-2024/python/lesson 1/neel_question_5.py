@@ -1,3 +1,7 @@
+#write a programme to create list by concatenating a given list which range goes from 1 to n 
+#Sample: ['p', 'q']
+#output:['p1', 'q1', 'p2', 'q2']
+
 # First ask how many letters to add
 # numbers to take
 # then sort it using bubble sort
