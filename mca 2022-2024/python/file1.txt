@@ -1,0 +1,3 @@
+Pasta    10
+Pizza    30
+Cake     60

@@ -1,0 +1,22 @@
+Caesar Cipher
+Additive Cipher
+Multiplication Cipher.
+Affine Cipher.
+Autokey Cipher.
+Playfair Cipher.
+Hill Cipher.
+Vignere Cipher
+Vernam Cipher.
+Rail Fens Cipher.
+RandA Algorithm.
+Diffie Algorithm.
+
+As a beginner in Python, you might find the Caesar Cipher, Additive Cipher, and Multiplication Cipher to be the easiest to implement. These ciphers are simple substitution ciphers that can be implemented with a few lines of code.
+
+The Affine Cipher is also a relatively simple substitution cipher that can be implemented with a few lines of code, but it involves some basic math concepts such as modular arithmetic, which may require a bit more understanding to implement.
+
+The Autokey Cipher, Playfair Cipher, Hill Cipher, Vigenère Cipher, and Rail Fence Cipher are all more advanced ciphers that may be more challenging for a beginner to implement. These ciphers use more complex methods for encrypting and decrypting messages and may require a more thorough understanding of the underlying concepts.
+
+The Vernam Cipher and Diffie-Hellman Algorithm are more advanced cryptographic techniques that may be challenging for a beginner to implement. These techniques involve more complex mathematical concepts and are typically used in more advanced applications.
+
+In general, as a beginner, it might be helpful to start with the simpler ciphers and work your way up to the more advanced ones as you gain more experience and understanding.

@@ -1,0 +1,112 @@
+Regular Expression: 
+1.You have a pattern matching.
+2.To find something specific in a stack of documents.
+3.Email, this checks the pattern, pincode, etc.
+4.pattern matching for sub-string.
+
+5.regular expressions are a 
+powerful language  for matching text pattersns and 
+statndardized way of searching, replacing and parsing text with complex patterns of chatacters
+Most modern languages have similar library packages for regular expressions.
+Regular expression features:
+Used to construct compilers, iterpreters and text editiors.
+uSED TO SEARCH AND MATCH TEXT PATTERNS.
+uSED TO VALIDATE TEXT DATA FORMATS ESPECIAQLLY INPUT DATA.
+
+General uses of regualr expressions
+search a string(search and match)
+Replace parts of as tring
+Break string into small pieces
+Finding a string
+Inpython:
+bEFORE USING THE regualar eapression n your program, you must import the library using 'import re'
+re notation
+! alternative
+() grouping
+? * + (&,n) quantification
+^ $ anchors
+-[] [-] [^] meta character
+\w
+
+an email address consists of 
+a user id that is a sequence of allowed characters:
+followed by the @ symbol
+followed by a hostname- that is a dot separated sequence of allowed characters.
+whatsapp have uploaded a list check it out there.
+
+Operator  Interpretation
+[Pp]ython Match 'Python' or 'python'
+[aeiou]   Match any one lowercase vowel
+[0-9]     Match any digit
+[a-z]     Match any lowercase ASCII letter
+
+[A-Z]     Match any uppercase ASCII letter
+[a-zA-z0-9] Match any of lwercase, uppercase, or digits
+[^aeiou] Match anything other thatn a lowercase.
+[^0-9]   Match anything other than a digit.
+
+Operator Interpretation.
+
+.  Match any character except newline
+\d Match any digit[0-9]
+\D Match a nondigit [^0-9]
+\s Match a whitespace character: [\t\r\n\f]
+\S Match nonwhitespace: [^\t\r\n\f]
+\w mATCH A SINGLE WORD CHARACTER: [a-ZA-Z0-9]
+\W Match anyword character:[^A-Za-z0-9]
+
+regular expression without operators.
+Regular Expression mATCHING STRINGS
+text               text
+Operator .
+Regular Expression
+be.t   best,belt,best,be it, ...
+oPERATORS * + ?
+Regular expression MATCHING STRINGS
+be*t               bt, bet, beet, 
+be+t               bet, best, be+++=t
+
+Operator []
+Regular Expression Matching STRINGS
+
+Operator
+Regular expression:
+hello!Hello hello, Hello
+
+Operator Integration
+\d       matches any decimal digit, equivalent to [0-9]
+\D       matches any nondigit character, equivalent to [0-9]
+\s       matches any whiespace character including the blank space, the tab \r, the new line \r, and teh acrrriage return \r.
+\S       matches anyu non-whitespace carachter.
+\w       matches any alphanumberic 
+
+alternative:
+'cat!mat' -> 'cat' or 'mat'
+'py
+
+1.zero or one of the preceding element.
+'rani?el' -> 'raniel' or 'ranel'
+'colou?r' -> 'colour' or 'color'
+
+2.zero or more of the proceecing element.
+'fo*ot' -> 'fot' or 'foot' or 'foooooooot'
+'94*9' -> '99' or '9499' or '9444449'
+
+3. one or more of the preceding element.
+'too+fan' -> 'toofan' or 'tooooooofan'
+'36+ 40' -> '3640' or '366666640'
+(m,n) -> m to n times of the preceding element.
+'go(2,3)gle' => 'google' or 'goooogle'
+'&[3]' -> '666'
+'s[2,]' -> 'ss' or 'sss' or 'sss'
+
+^-> matches the starting position with in the string
+'^obje' -> 'object' or 'object- oriented'
+'^2014' -> '2014' or 2014/20/7'
+
+$-> matches the ending position with in the string
+'gram$' -> 'program' or 'kilogram'
+'2014$' -> '20/5/14' or '20/5/14'
+
+wRITE A PYTHON PROGRAM TO CHECK THE VALIDITY OF PASSWORD INPUT BY USER. vALIDATION AT LEAST 1 letter between [a-z] abd ketter betweeb [A-Z]. Atleast 1 number between [0-9].Alteast 1 character from [$#@].Minimum length 6 charactes.Minimum length 16 characters.
+input: Add232@
