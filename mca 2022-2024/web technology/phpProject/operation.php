@@ -12,15 +12,9 @@
         <select name="operation" id="operation">
             <option value="Teams">Teams</option>
             <option value="Player">Player</option>
-            <option value="File_Handling">File Handling</option>
+            <option value="File">File Handling</option>
         </select>
         <button type="submit">Submit</button>
     </form>
 </body>
 </html>
-
-<?php 
-
-
-
-?>

@@ -7,12 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
-       <select name="" id="">
-        <option value="read">Read</option>
-        <option value="write">Write</option>
-        <option value=""></option>
-       </select>
+    <form action="delete.php" method="post">
+        <label for="id">id</label>
+        <input type="number" name="id" id="id">
+        <input type="submit" value="submit">
     </form>
 </body>
 </html>

@@ -2,8 +2,6 @@
 
 session_start();
 
-$_SESSION['email_10']  = $_POST['email'];
-
 $email = $_POST['email'];
 
 $password = $_POST['password'];
@@ -15,6 +13,9 @@ $username = 'root';
 $password = 'avry';
 
 $db = 'nba';
+
+// Set a session variable
+$_SESSION['email'] = $email;
 
 $conn = mysqli_connect($servername,$username,$password,$db);
 

@@ -7,12 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
-       <select name="" id="">
-        <option value="read">Read</option>
-        <option value="write">Write</option>
-        <option value=""></option>
-       </select>
+    <form action="folderUpload1.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="file">
+        <input type="submit" value="submit">
     </form>
 </body>
 </html>
