@@ -1,0 +1,19 @@
+class Bank :
+    def __init__(self,num1,num2) :
+        self.num1 = num1
+        self.num2 = num2
+        
+    def __add__(self,other) :
+        return self.num1 * other.num2
+    
+    def __sub__(self,other) :
+        return self.num1 - other.num2
+ 
+ #__sub__
+ #__mul__
+ #__mod__
+    
+b1 = Bank(10,20)
+b2 = Bank(20,30)
+print(b1 + b2)
+print(b1 - b2)
