@@ -1,0 +1,238 @@
+package random;
+
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class automation {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","D:\\Download\\chromedriver_win32 (1)\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments(new String[] {"--remote-allow-origins=*"});
+		WebDriver driver  = new ChromeDriver(options);	
+		driver.get("https://www.youtube.com/");
+		Dimension d1 = new Dimension(800,200);
+		driver.manage().window().setSize(d1);
+	}	
+
+}
+
+Navigate method.
+
+package random;
+
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class automation {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","D:\\Download\\chromedriver_win32 (1)\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments(new String[] {"--remote-allow-origins=*"});
+		WebDriver driver  = new ChromeDriver(options);	
+		driver.navigate().to("https://www.manga4Life.com");
+		Dimension d1 = new Dimension(800,200);
+		driver.manage().window().setSize(d1);
+	}	
+
+}
+
+
+Setting the value of the input type text from eclipse.
+
+package random;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class automation {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","D:\\Download\\chromedriver_win32 (1)\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments(new String[] {"--remote-allow-origins=*"});
+		WebDriver driver  = new ChromeDriver(options);	
+		driver.navigate().to("https://www.rahulshettyacademy.com/AutomationPractice/");
+//		Dimension d1 = new Dimension(800,200);
+//		driver.manage().window().setSize(d1);
+//		Get Element
+		 WebElement name = driver.findElement(By.id("name"));
+	        name.sendKeys(new String[] {"Neel"});
+		
+	}	
+
+}
+
+Getting the size of the list from the code and clicking the radio button from code.
+
+package random;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class automation {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","D:\\Download\\chromedriver_win32 (1)\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments(new String[] {"--remote-allow-origins=*"});
+		WebDriver driver  = new ChromeDriver(options);	
+		driver.navigate().to("https://www.rahulshettyacademy.com/AutomationPractice/");
+//		Dimension d1 = new Dimension(800,200);
+//		driver.manage().window().setSize(d1);
+//		Get Element
+		   List<WebElement> element = driver.findElements(By.name("radioButton"));
+		   System.out.println(element.size());
+		   element.get(1).click();
+	}	
+
+}
+
+Getting the alert message.
+
+package random;
+
+import java.util.List;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class automation {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","D:\\Download\\chromedriver_win32 (1)\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments(new String[] {"--remote-allow-origins=*"});
+		WebDriver driver  = new ChromeDriver(options);	
+		driver.navigate().to("https://www.rahulshettyacademy.com/AutomationPractice/");
+//		Dimension d1 = new Dimension(800,200);
+//		driver.manage().window().setSize(d1);
+//		Get Element
+//		   List<WebElement> element = driver.findElements(By.name("radioButton"));
+//		   System.out.println(element.size());
+//		   element.get(1).click();
+		driver.findElement(By.id("alertbtn")).click();
+		Alert alert = driver.switchTo().alert();
+		
+		String alertMessage = alert.getText();
+		System.out.println(alertMessage);
+		
+	}	
+
+}
+
+Print out all the options name and also select a option from the selenium.
+
+package random;
+
+import java.util.List;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
+
+public class automation {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","D:\\Download\\chromedriver_win32 (1)\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments(new String[] {"--remote-allow-origins=*"});
+		WebDriver driver  = new ChromeDriver(options);	
+		driver.navigate().to("https://www.rahulshettyacademy.com/AutomationPractice/");
+//		Dimension d1 = new Dimension(800,200);
+//		driver.manage().window().setSize(d1);
+//		Get Element
+//		   List<WebElement> element = driver.findElements(By.name("radioButton"));
+//		   System.out.println(element.size());
+//		   element.get(1).click();
+		Select sel = new Select(driver.findElement(By.id("dropdown-class-example")));
+		for (WebElement a : sel.getOptions()) {
+			System.out.println(a.getText());
+		}
+		sel.selectByIndex(2);
+		
+	}	
+
+}
+
+Stage Element Exception.
+
+xpath: //*[contains(text(),"Checkbox")]
+
+Tab to fill the form.
+
+input
+
+Code run on different browswer.
+
+
+package random;
+
+import java.util.List;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.support.ui.Select;
+
+public class automation {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","D:\\Download\\chromedriver_win32 (1)\\chromedriver.exe");
+		EdgeOptions options = new EdgeOptions();
+		options.addArguments(new String[] {"--remote-allow-origins=*"});
+		WebDriver driver  = new EdgeDriver(options);	
+		driver.navigate().to("https://www.rahulshettyacademy.com/AutomationPractice/");
+//		Dimension d1 = new Dimension(800,200);
+//		driver.manage().window().setSize(d1);
+//		Get Element
+//		   List<WebElement> element = driver.findElements(By.name("radioButton"));
+//		   System.out.println(element.size());
+//		   element.get(1).click();
+		Select sel = new Select(driver.findElement(By.id("dropdown-class-example")));
+		for (WebElement a : sel.getOptions()) {
+			System.out.println(a.getText());
+		}
+		sel.selectByIndex(2);
+		
+	}	
+
+}
