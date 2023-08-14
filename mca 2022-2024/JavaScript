@@ -1,0 +1,248 @@
+JavaScript is garbage collected, that means it will take care of the unused objects and freeing up the memory.
+
+It's standard implementation is called the ECMA script.
+it is the default language in all of the web browsers.
+it is the only code that run's in the browswer besides web assembly.
+Broswer is not the only runtime, js can also run on servers because of tools like nodejs.
+
+it is interpreted line by line, as apposed to other lanugages where the code is compiled first.
+
+Interpreted is not the most accurate term used for js, 
+under the hood of the browser there is an engine called V8, it makes your js run extremely fast by taking your code and converting it into machine code via a process called JUST-IN-TIME Compilation.
+
+Dynamically Typed language meaning no data type annotations are necessary.
+
+There are seven primitive data types in javascript.
+
+string
+
+int
+
+boolean
+
+bigint
+
+undefined 
+
+null
+
+symbol.
+
+
+
+let and const both come under the ECMA Script 6.
+
+if no value is specified the default value is undefined.
+
+any value which is not primitive will inherit from the object class.
+
+";", they are optional becuase the js parser would add them automatically.
+
+lexical environment. (Scope, where variables work and where they don't)
+
+/* function definition */
+
+when the function keyword is used by itself it is called as function definition.
+
+functions are just objects that means they can also be used as expression.
+
+const a = () => {
+    return 10;
+}
+
+console.log(a());
+
+/* Higher order functions */
+
+Higher order functions are functions which take other functions (one or more) as argument and also return functions as a result.
+
+/* Function which take other function as arguments. */
+
+function doSomething(operation, a, b) {
+    return operation(a,b);
+}
+
+function add(a,b) {
+    return a + b;
+}
+
+function minus(a,b) {
+    return a - b;
+}
+
+console.log(doSomething(add,10,20))
+
+console.log(doSomething(minus,10,20))
+
+/* Function which return other function as arguments. */
+
+function multiplier(factor) {
+  return function (x) {
+    return x * factor;
+  };
+}
+
+const multiplyByTwo = multiplier(2);
+const multiplyByThree = multiplier(3);
+
+console.log(multiplyByTwo(5)); // Output: 10
+console.log(multiplyByThree(5)); // Output: 15
+
+
+/* Closures, so basically, there is a thing in a box inside another box, and when we remove that thing from the box, that thing still remembers where it came from, that is closure is that correct? */
+
+function a() {
+    let b = "I am listening to JRE";
+    
+    function c() {
+       console.log(b);
+    }
+    
+    return c; // Return the function itself without calling it.
+}
+
+const closure = a();
+
+closure(); // Output: "I am listening to JRE"
+
+
+/* Non-Blocking event loop */
+
+Normally when you write code in scriptiong language, it is executed synchronoulsy (line by line), this basically means that the next line can't start untill the previous line finishes, with an event loop we can write asynchronous loop in js, which runs on a seperate thread pool while the rest of the application is still executing synchronoulsy.
+
+/* Callback hell */
+
+When event loop become too much nested then that leads to callback hell.
+
+/* Promise */
+
+promise is bascially we are waiting for a response and this allows us to take care of two scenarios where the response is received successfully and when it is not.
+
+Promise in JavaScript is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. It allows us to handle two scenarios:
+
+Successful response: When the asynchronous operation completes successfully, the Promise is resolved with the resulting value.
+
+Unsuccessful response: If there is an error during the asynchronous operation, the Promise is rejected with an error object.
+
+Merge Sort.
+
+function divide(m) {
+    let length = m.length;
+    if (length <= 1) {
+        return m;
+    }
+    let middle_index = Math.floor(length / 2);
+    let left_part = m.slice(0,middle_index);
+    let right_part = m.slice(middle_index,length);
+    left_part = divide(left_part);
+    right_part = divide(right_part);
+    return merge(left_part,right_part);
+}
+
+function merge(l,r) {
+    let i = 0;
+    let j = 0;
+    let result  = [];
+    while (i < l.length && j < r.length) {
+        if (l[i] > r[j]) {
+            result.push(r[j]);
+            j += 1;
+         } else if (l[i] < r[j]) {
+             result.push(l[i]);
+            i += 1;
+         }
+    }
+     result = result.concat(l.slice(i,l.length)).concat(r.slice(j,r.length));
+         return result;
+}
+
+let a = [5,4,3,2,1];
+console.log(divide(a));
+
+QuickSort.
+
+function quickSort(m) {
+    let length = m.length;
+    if (length <= 1) {
+        return m;
+    }
+    let result = [];
+    let left_side = [];
+    let right_side = [];
+    let pivot = m[Math.floor(length / 2)];
+    let middle_side = [pivot];
+    for (let i = 0; i < m.length; i++) {
+        if (m[i] < pivot) {
+            left_side.push(m[i]);
+        } else if (m[i] > pivot) {
+            right_side.push(m[i]);
+        }
+    }
+    
+    result = result.concat(quickSort(left_side), middle_side, quickSort(right_side));
+    return result;
+    
+}
+
+let a = [5,4,3,2,1];
+console.log(quickSort(a));
+
+#Insertion Sort.
+
+function insertion_sort(m) {
+    for (let i = 0; i < m.length; i++) {
+        let key = i;
+        let j = i - 1;
+        while (j >= 0 && key < m[j]) {
+            m[j + 1] = m[j];
+            j -= 1
+            m[j+1] = key;
+        }
+    }
+    return m;
+}
+
+let a = [5,4,3,2,1]
+console.log(insertion_sort(a));
+
+#Bubble Sort.
+
+function bubble_sort(m) {
+    let length = m.length;
+    for (let i =0; i < length; i++) {
+        for (let j = 0; j < length - 1 - i; j++) {
+            if (m[j+1] < m[j]) {
+                let a = m[j];
+                let b = m[j+1];
+                m[j+1] = a;
+                m[j] = b;
+            }
+        }
+    }
+    return m;
+}
+
+let a = [64, 34, 25, 12, 22, 11, 90];
+console.log(bubble_sort(a));
+
+Binary Search.
+
+function binarySearch(m,e,key) {
+   let l = 1;
+   let j = e;
+   while (l <= j) {
+       middle = Math.floor((l + j) / 2);
+       if (m[middle] == key) {
+           return middle;
+       } else if (m[middle] > key) {
+          j = middle - 1;
+       } else if (m[middle] < key) {
+           l = middle + 1;
+       }
+   }
+   return 0;
+}
+
+let a = [1,2,3,4,5];
+
+console.log(binarySearch(a,a.length,5));
