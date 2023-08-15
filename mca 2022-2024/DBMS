@@ -1,0 +1,56 @@
+Redundancy in a database refers to the unnecessary repetition of data in multiple places. Redundancy can lead to various types of anomalies in a database, which can negatively affect data integrity and consistency. Some common types of anomalies caused by redundancy in a database are:
+
+Insertion Anomalies: Insertion anomalies occur when you need to insert data into multiple places in the database to maintain consistency. If a single piece of data needs to be inserted in several places, there is a higher chance of errors or inconsistencies occurring during the insertion process.
+
+Update Anomalies: Update anomalies happen when you need to update data in multiple locations, and the updates are not performed consistently. Inconsistencies can arise if some instances of the data are updated while others are not, leading to a mismatch of information.
+
+Deletion Anomalies: Deletion anomalies occur when removing data leads to unintended loss of information. For example, if you delete a row that contains useful information, but other rows depend on that information, it can cause loss of data integrity.
+
+Inconsistency or Data Integrity Issues: Redundancy can lead to data inconsistencies, where different occurrences of the same data have different values. This can lead to confusion and incorrect decision-making based on inconsistent data.
+
+Increased Storage Requirements: Storing redundant data consumes more storage space than necessary. This not only wastes resources but can also impact database performance.
+
+Complexity and Maintenance Issues: As redundancy increases, the complexity of the database structure also increases. This can make the database more challenging to maintain and modify over time.
+
+To mitigate these anomalies and ensure data integrity, database designers and administrators use techniques such as normalization. Normalization involves organizing data in a structured manner, minimizing redundancy, and reducing the likelihood of anomalies. By eliminating or minimizing redundancy, databases become more efficient, consistent, and easier to manage.
+
+Normalization is a process in database design that aims to eliminate data redundancy and improve data integrity by organizing data into well-structured tables. It involves breaking down large, complex tables into smaller, related tables and defining relationships between them. There are different levels of normalization, commonly referred to as normal forms. Each normal form represents a specific level of data organization and ensures that data is stored efficiently and without redundancy. The most common normal forms are:
+
+First Normal Form (1NF): Ensures that each column in a table contains atomic (indivisible) values and that each row is unique. There should be no repeating groups or arrays within a row.
+
+Second Normal Form (2NF): Builds on 1NF and eliminates partial dependencies. A table is in 2NF if it is in 1NF and all non-key attributes are fully functionally dependent on the entire primary key.
+
+Third Normal Form (3NF): Builds on 2NF and eliminates transitive dependencies. A table is in 3NF if it is in 2NF and all attributes are functionally dependent only on the primary key.
+
+Boyce-Codd Normal Form (BCNF): An extension of 3NF that eliminates certain types of anomalies involving functional dependencies. A table is in BCNF if, for every non-trivial functional dependency X → Y, X is a superkey.
+
+Fourth Normal Form (4NF): Deals with multi-valued dependencies. A table is in 4NF if it is in BCNF and there are no non-trivial multi-valued dependencies.
+
+Fifth Normal Form (5NF) or Project-Join Normal Form (PJNF): Addresses join dependencies. A table is in 5NF if it is in 4NF and all join dependencies are implied by candidate keys.
+
+There are additional normal forms beyond these, such as Domain-Key Normal Form (DK/NF) and Sixth Normal Form (6NF), which deal with more specialized cases and are less commonly encountered.
+
+It's important to note that higher normal forms (e.g., 4NF, 5NF) come into play in situations where databases have complex relationships and specific types of anomalies need to be addressed. In most cases, aiming for at least 3NF is sufficient for well-structured and normalized databases.
+
+Normalization is a critical aspect of database design, but achieving higher normal forms can lead to more complex structures. Designers need to strike a balance between normalization and practical considerations like query performance and ease of maintenance.
+
+Types of dependencies.
+
+1.Fully Functional Dependency: Y is functionally dependent of X in such a way that removing any attribute from X would fail the dependency (X is a composite key).
+
+2.Partial Functional Dependency: Y is dependent on X in such a way that removing any attribute from X such a way that the dependency is still preserved.
+
+3.Transitive Dependency: If B is functionally dependent on A and C is functionally dependent on B then C if functionally dependent on A.
+
+Different types of keys.
+
+1.Primary Key (PK): A primary key is a unique identifier for each record in a table. It ensures that each row is uniquely identifiable and serves as a reference point for relationships between tables.
+
+2.Foreign Key (FK): A foreign key is a field in one table that refers to the primary key in another table. It establishes a link between two tables and helps maintain referential integrity.
+
+3.Candidate key: A candidate key is a subset of super key, a candidate key can be a super key but a super cannot be a candidate key, A candidate key is the minimum amount of attiribute which is necessary to uniquely identify a record.
+
+4.Super key: A super key is two or more combination of attribute which helps us in uniqely identifying a record.
+
+5.Composite key: A composite key is a key that consists of two or more attributes (columns) taken together to uniquely identify a record in a table.
+
