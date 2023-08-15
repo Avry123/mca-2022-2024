@@ -246,3 +246,146 @@ function binarySearch(m,e,key) {
 let a = [1,2,3,4,5];
 
 console.log(binarySearch(a,a.length,5));
+
+Classes and objects.
+
+In getter you don't need to use () and in setter's you have to pay attention to two things.
+
+1.The method only takes one parameter at a time.
+
+2.a1.setFirstName("NEEL") /*This is wrong.
+  The correct the method is a1.setFirstName = "Neel";
+
+3.For getter there is just one thing, the correct way is a1.getFirstName , no () this required.
+
+Concepts related to OOP.
+
+1.Encapsulation.
+
+Example: class bank {
+    constructor(balance) {
+        this._balance = balance;
+    }
+    
+    deposit(a) {
+        this._balance += a;
+    }
+    
+    withdraw(a) {
+        if (a > this._balance) {
+            return "The withdrawl amount you requested is greater than your current balance";
+        }
+        this._balance -= a;
+    }
+    
+    get readBalance() {
+        return this._balance;
+    }
+}
+
+let b = new bank(20000);
+
+
+2.Inheritance.
+
+class a {
+    fullName() {
+        return "Neel Chalke";
+    }
+    
+}
+
+class b extends a {
+    
+}
+
+let b1 = new b();
+console.log(b1.fullName());
+
+3.Abstraction
+
+class A {
+    constructor(fname,lname) {
+       if (this.constructor == "A") {
+           throw new Error("This is a abstract method");
+       }
+    }
+    
+    message() {
+        throw new Error("This is an abstract method");
+    }
+}
+
+class B extends A {
+    message() {
+        return "Life is barely long enough to get good at one thing, so make sure what you get good at";
+    }
+}
+
+let a1 = new B("Neel");
+console.log(a1.message());
+
+4.Polymorphism
+
+class Animal {
+    sound() {
+        return "Great";
+    }
+}
+
+class Dog extends Animal {
+    sound() {
+        return "Woof Woof";
+    }
+}
+
+class Cat extends Animal {
+    sound() {
+        return "Meow Meow";
+    }
+}
+
+let animal = new Animal();
+let dog = new Dog();
+let cat = new Cat();
+
+console.log(animal.sound());
+console.log(dog.sound());
+console.log(cat.sound());
+
+4.Method overloading and method overriding.
+
+#Method Overloading.
+
+class A {
+    sum(a,b) {
+        return a + b;
+    }
+     sum(a,b,c) {
+        return a + b + c;
+    }
+}
+
+5.Call by reference and call by value.
+
+// Call by value
+function sum(num) {
+    num *= 2;
+    return num;
+}
+
+// Call by references
+function add(num) {
+    num.push(4);
+    return num;
+}
+
+let a = 2;
+let b = [1,2,3];
+sum(a);
+add(b);
+console.log(b);
+
+
+let a = new A();
+console.log(a.sum(1,2,4));
